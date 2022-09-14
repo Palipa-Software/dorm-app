@@ -4,29 +4,30 @@ import 'package:dorm_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
+  configLoading();
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      enableLog: false,
-      title: 'Fereli Sinan Efendi Yurt Uygulaması',
-      defaultTransition: Transition.downToUp,
-      getPages: AppPages.routes,
-      initialRoute: Routes.SPLASH,
-      smartManagement: SmartManagement.keepFactory,
-      theme: ThemeConfig.lightTheme,
-      builder: EasyLoading.init(),
-    );
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
+      return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        enableLog: false,
+        title: 'Fereli Sinan Efendi Yurt Uygulaması',
+        defaultTransition: Transition.downToUp,
+        getPages: AppPages.routes,
+        initialRoute: Routes.HOMEPAGE,
+        smartManagement: SmartManagement.keepFactory,
+        theme: ThemeConfig.darkTheme,
+        builder: EasyLoading.init(),
+      );
+    });
   }
 }
 

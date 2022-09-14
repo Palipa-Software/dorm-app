@@ -1,3 +1,4 @@
+import 'package:dorm_app/modules/homepage/homepage_screen.dart';
 import 'package:dorm_app/modules/login/login_binding.dart';
 import 'package:dorm_app/modules/login/login_screen.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,11 @@ class AppPages {
     GetPage(
       name: Routes.LOGIN,
       page: () => LoginScreen(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
+      name: Routes.HOMEPAGE,
+      page: () => HomePageScreen(),
       binding: LoginBinding(),
     ),
   ];
