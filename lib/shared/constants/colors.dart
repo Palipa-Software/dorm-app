@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ColorConstants {
+class AppColors {
+  AppColors._();
+
+  static Color sodaliteBlue = Color(0xFF25316D);
+  static Color oceanNight = Color(0xFF5F6F94);
+  static Color effervescentBlue = Color(0xFF002B5B);
+  static Color lakeView = Color(0xFF2B4865);
+  static Color seaGoddess = Color(0xFF256D85);
+  static Color beachGlass = Color(0xFF8FE3CF);
+
+  //App Dark Light Color
   static Color lightScaffoldBackgroundColor = hexToColor('#F9F9F9');
   static Color darkScaffoldBackgroundColor = hexToColor('#2F2E2E');
   static Color secondaryAppColor = hexToColor('#22DDA6');
@@ -10,11 +20,6 @@ class ColorConstants {
   static Color darkGray = Color(0xFF9F9F9F);
   static Color black = Color(0xFF000000);
   static Color white = Color(0xFFFFFFFF);
-
-  static Color textColor = Color(0xff02194D);
-  static Color secondaryColor = Color(0xffFAFAFE);
-  static Color appColor = Color(0xffFF1849);
-  static Color containerColor = Color(0xffF0F0F1);
 }
 
 Color hexToColor(String hex) {

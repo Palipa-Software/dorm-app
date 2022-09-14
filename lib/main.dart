@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         title: 'Fereli Sinan Efendi Yurt Uygulaması',
         defaultTransition: Transition.downToUp,
         getPages: AppPages.routes,
-        initialRoute: Routes.HOMEPAGE,
+        initialRoute: Routes.SPLASH,
         smartManagement: SmartManagement.keepFactory,
         theme: ThemeConfig.darkTheme,
         builder: EasyLoading.init(),
@@ -38,7 +38,7 @@ void configLoading() {
     // ..indicatorSize = 45.0
     ..radius = 10.0
     // ..progressColor = Colors.yellow
-    ..backgroundColor = ColorConstants.lightGray
+    ..backgroundColor = AppColors.lightGray
     ..indicatorColor = hexToColor('#64DEE0')
     ..textColor = hexToColor('#64DEE0')
     // ..maskColor = Colors.red

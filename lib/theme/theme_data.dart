@@ -174,29 +174,29 @@ class ThemeConfig {
 
   static ThemeData get lightTheme => createTheme(
         brightness: Brightness.light,
-        background: ColorConstants.lightScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryAppColor,
+        background: AppColors.lightScaffoldBackgroundColor,
+        cardBackground: AppColors.secondaryAppColor,
         primaryText: Colors.black,
         secondaryText: Colors.white,
-        accentColor: ColorConstants.secondaryAppColor,
-        divider: ColorConstants.secondaryAppColor,
+        accentColor: AppColors.secondaryAppColor,
+        divider: AppColors.secondaryAppColor,
         buttonBackground: Colors.black38,
-        buttonText: ColorConstants.secondaryAppColor,
-        disabled: ColorConstants.secondaryAppColor,
+        buttonText: AppColors.secondaryAppColor,
+        disabled: AppColors.secondaryAppColor,
         error: Colors.red,
       );
 
   static ThemeData get darkTheme => createTheme(
         brightness: Brightness.dark,
-        background: ColorConstants.darkScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryDarkAppColor,
+        background: AppColors.darkScaffoldBackgroundColor,
+        cardBackground: AppColors.secondaryDarkAppColor,
         primaryText: Colors.white,
         secondaryText: Colors.black,
-        accentColor: ColorConstants.secondaryDarkAppColor,
+        accentColor: AppColors.secondaryDarkAppColor,
         divider: Colors.black45,
         buttonBackground: Colors.white,
-        buttonText: ColorConstants.secondaryDarkAppColor,
-        disabled: ColorConstants.secondaryDarkAppColor,
+        buttonText: AppColors.secondaryDarkAppColor,
+        disabled: AppColors.secondaryDarkAppColor,
         error: Colors.red,
       );
 }
