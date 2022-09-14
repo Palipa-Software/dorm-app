@@ -48,10 +48,11 @@ class ThemeConfig {
       toggleableActiveColor: accentColor,
       appBarTheme: AppBarTheme(
         brightness: brightness,
-        color: cardBackground,
+        elevation: 0,
+        color: Colors.transparent,
         textTheme: TextTheme(
           bodyText1: baseTextTheme.bodyText1!.copyWith(
-            color: secondaryText,
+            color: AppColors.white,
             fontSize: 18,
           ),
         ),
@@ -174,7 +175,7 @@ class ThemeConfig {
 
   static ThemeData get lightTheme => createTheme(
         brightness: Brightness.light,
-        background: AppColors.lightScaffoldBackgroundColor,
+        background: AppColors.oceanNight,
         cardBackground: AppColors.secondaryAppColor,
         primaryText: Colors.black,
         secondaryText: Colors.white,

@@ -16,7 +16,7 @@ class HomePageScreen extends GetView<HomePageController> {
         centerTitle: true,
         title: Text(
           "Fereli Sinan Efendi Erkek Öğrencii Yurdu",
-          style: GoogleFonts.inconsolata(color: Colors.red, fontWeight: FontWeight.w600),
+          style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
       ),
       body: GridView.count(

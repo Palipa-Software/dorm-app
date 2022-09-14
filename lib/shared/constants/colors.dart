@@ -11,7 +11,7 @@ class AppColors {
   static Color beachGlass = Color(0xFF8FE3CF);
 
   //App Dark Light Color
-  static Color lightScaffoldBackgroundColor = hexToColor('#F9F9F9');
+  static Color lightScaffoldBackgroundColor = Color(0xFFFDEBEC);
   static Color darkScaffoldBackgroundColor = hexToColor('#2F2E2E');
   static Color secondaryAppColor = hexToColor('#22DDA6');
   static Color secondaryDarkAppColor = Colors.white;
