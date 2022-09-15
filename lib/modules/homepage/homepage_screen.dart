@@ -1,19 +1,21 @@
-import 'package:dorm_app/modules/homepage/homepage_items.dart';
-import 'package:dorm_app/shared/constants/padding.dart';
-import 'package:dorm_app/shared/constants/strings.dart';
-import 'package:dorm_app/shared/widgets/CustomSvgAsset.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:dorm_app/modules/homepage/homepage_controller.dart';
-import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:dorm_app/modules/homepage/homepage_controller.dart';
+import 'package:dorm_app/modules/homepage/homepage_items.dart';
+import 'package:dorm_app/shared/constants/colors.dart';
+import 'package:dorm_app/shared/constants/padding.dart';
+import 'package:dorm_app/shared/constants/strings.dart';
+
 import '../../shared/widgets/custom_home_page_menu_button.dart';
 
 class HomePageScreen extends GetView<HomePageController> {
+  final HomePageController _controller = HomePageController();
   @override
   Widget build(BuildContext context) {
     PageController pageViewController = PageController();
@@ -37,7 +39,7 @@ class HomePageScreen extends GetView<HomePageController> {
                 height: 4.h,
               ),
               DotIndicator(pageViewController: pageViewController),
-              GridMenu(),
+              GridMenu(controller: _controller),
             ],
           ),
         ),
@@ -62,7 +64,7 @@ class HomePageDrawer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(AppStrings.avatarUrl),
+                  backgroundImage: AssetImage("assets/images/img_avatar.jpg"),
                 ),
                 Text(
                   "Kullanıcı Adı",
@@ -153,9 +155,12 @@ class DotIndicator extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class GridMenu extends StatelessWidget {
-  const GridMenu({
+  HomePageController controller;
+  GridMenu({
     Key? key,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -169,8 +174,8 @@ class GridMenu extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
-        CustomHomePageMenuButton(path: "ic_inbox_in", title: "Duyurlar", func: () {}),
-        CustomHomePageMenuButton(path: "ic_basket_ok", title: "Yemek Listesi", func: () {}),
+        CustomHomePageMenuButton(path: "ic_inbox_in", title: "Duyurlar", func: controller.goAnnouncement),
+        CustomHomePageMenuButton(path: "ic_basket_ok", title: "Yemek Listesi", func: controller.goFoodList),
         CustomHomePageMenuButton(path: "ic_warning", title: "Şikayet", func: () {}),
         CustomHomePageMenuButton(path: "ic_bell", title: "Oda Teknik Destek ", func: () {}),
         CustomHomePageMenuButton(path: "ic_calendar", title: "Etkinlikler", func: () {}),

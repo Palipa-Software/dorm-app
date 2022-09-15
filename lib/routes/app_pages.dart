@@ -1,5 +1,7 @@
 import 'package:dorm_app/modules/announcements/announcements_binding.dart';
 import 'package:dorm_app/modules/announcements/announcements_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_screen.dart';
 import 'package:dorm_app/modules/homepage/homepage_screen.dart';
 import 'package:dorm_app/modules/login/login_binding.dart';
 import 'package:dorm_app/modules/login/login_screen.dart';
@@ -33,6 +35,11 @@ class AppPages {
       name: Routes.ANNOUNCEMENTS,
       page: () => AnnouncementsScreen(),
       binding: AnnouncementsBinding(),
+    ),
+    GetPage(
+      name: Routes.FOODLIST,
+      page: () => FoodListScreen(),
+      binding: FoodListBinding(),
     ),
   ];
 }

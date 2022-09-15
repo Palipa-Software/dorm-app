@@ -2,8 +2,6 @@ import 'package:dorm_app/modules/announcement_detail/announcement_detail_screen.
 import 'package:dorm_app/modules/announcements/announcements_controller.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,8 +20,7 @@ class AnnouncementsScreen extends GetView<AnnouncementsController> {
           centerTitle: true,
           title: Text(
             "Duyurular",
-            style: GoogleFonts.inconsolata(
-                fontSize: 18.sp, fontWeight: FontWeight.w600),
+            style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
           ),
         ),
         body: Padding(
@@ -42,17 +39,14 @@ class AnnouncementsScreen extends GetView<AnnouncementsController> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       height: 20.h,
-                      decoration: BoxDecoration(
-                          color: AppColors.lakeView,
-                          borderRadius: BorderRadius.circular(15.sp)),
+                      decoration: BoxDecoration(color: AppColors.lakeView, borderRadius: BorderRadius.circular(15.sp)),
                       child: Column(
                         children: [
                           Padding(
                             padding: EdgeInsets.all(13.sp),
                             child: Flexible(
                               child: RichText(
-                                overflow: TextOverflow
-                                    .ellipsis, // this will help add dots after maxLines
+                                overflow: TextOverflow.ellipsis, // this will help add dots after maxLines
                                 maxLines: 1, // max lines after that dots comes
 
                                 text: TextSpan(
@@ -74,10 +68,8 @@ class AnnouncementsScreen extends GetView<AnnouncementsController> {
                               alignment: Alignment.topLeft,
                               child: Flexible(
                                 child: RichText(
-                                  overflow: TextOverflow
-                                      .ellipsis, // this will help add dots after maxLines
-                                  maxLines:
-                                      3, // max lines after that dots comes
+                                  overflow: TextOverflow.ellipsis, // this will help add dots after maxLines
+                                  maxLines: 3, // max lines after that dots comes
 
                                   text: TextSpan(
                                       style: GoogleFonts.inconsolata(
@@ -97,8 +89,7 @@ class AnnouncementsScreen extends GetView<AnnouncementsController> {
                               alignment: Alignment.bottomRight,
                               child: Text(
                                 DateFormat('dd-MM-yyyy').format(date),
-                                style: GoogleFonts.inconsolata(
-                                    color: Colors.white, fontSize: 15.sp),
+                                style: GoogleFonts.inconsolata(color: Colors.white, fontSize: 15.sp),
                               ),
                             ),
                           )

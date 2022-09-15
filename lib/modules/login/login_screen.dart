@@ -1,13 +1,12 @@
 import 'package:dorm_app/modules/login/login_controller.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_bounceable/flutter_bounceable.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
+
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LoginScreen extends GetView<LoginController> {
@@ -51,8 +50,7 @@ class LoginScreen extends GetView<LoginController> {
                     cursorColor: AppColors.oceanNight,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
-                    style: GoogleFonts.inconsolata(
-                        color: AppColors.oceanNight, fontSize: 17.sp),
+                    style: GoogleFonts.inconsolata(color: AppColors.oceanNight, fontSize: 17.sp),
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(18.sp),
                       prefixIcon: Icon(
@@ -61,13 +59,11 @@ class LoginScreen extends GetView<LoginController> {
                         color: AppColors.oceanNight,
                       ),
                       hintText: "E-mail",
-                      hintStyle: GoogleFonts.inconsolata(
-                          color: AppColors.oceanNight, fontSize: 16.sp),
+                      hintStyle: GoogleFonts.inconsolata(color: AppColors.oceanNight, fontSize: 16.sp),
                       fillColor: AppColors.white,
                       filled: true,
-                      border: UnderlineInputBorder(
-                          borderRadius: BorderRadius.circular(18.sp),
-                          borderSide: BorderSide.none),
+                      border:
+                          UnderlineInputBorder(borderRadius: BorderRadius.circular(18.sp), borderSide: BorderSide.none),
                     ),
                   ),
                   SizedBox(
@@ -81,8 +77,7 @@ class LoginScreen extends GetView<LoginController> {
                         obscuringCharacter: "*",
                         keyboardType: TextInputType.visiblePassword,
                         textInputAction: TextInputAction.done,
-                        style: GoogleFonts.inconsolata(
-                            color: AppColors.oceanNight, fontSize: 17.sp),
+                        style: GoogleFonts.inconsolata(color: AppColors.oceanNight, fontSize: 17.sp),
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(18.sp),
                           prefixIcon: Icon(
@@ -95,21 +90,17 @@ class LoginScreen extends GetView<LoginController> {
                               _controller.changeVisible();
                             },
                             child: Icon(
-                              _controller.isVisible.value
-                                  ? Icons.visibility_off_outlined
-                                  : Icons.visibility_outlined,
+                              _controller.isVisible.value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
                               color: AppColors.oceanNight,
                               size: 6.w,
                             ),
                           ),
                           hintText: "Şifre",
-                          hintStyle: GoogleFonts.inconsolata(
-                              color: AppColors.oceanNight, fontSize: 16.sp),
+                          hintStyle: GoogleFonts.inconsolata(color: AppColors.oceanNight, fontSize: 16.sp),
                           fillColor: AppColors.white,
                           filled: true,
                           border: UnderlineInputBorder(
-                              borderRadius: BorderRadius.circular(18.sp),
-                              borderSide: BorderSide.none),
+                              borderRadius: BorderRadius.circular(18.sp), borderSide: BorderSide.none),
                         ),
                       );
                     },
