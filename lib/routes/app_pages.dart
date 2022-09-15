@@ -7,7 +7,6 @@ import 'package:dorm_app/modules/login/login_binding.dart';
 import 'package:dorm_app/modules/login/login_screen.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_binding.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_screen.dart';
-import 'package:dorm_app/shared/widgets/loading_animation.dart';
 import 'package:get/get.dart';
 
 import '../modules/splash/splash_binding.dart';
@@ -38,7 +37,8 @@ class AppPages {
       name: Routes.LOGINHELP,
       page: () => LoginHelpScreen(),
       binding: LoginHelpBinding(),
-
+    ),
+    GetPage(
       name: Routes.ANNOUNCEMENTS,
       page: () => AnnouncementsScreen(),
       binding: AnnouncementsBinding(),
