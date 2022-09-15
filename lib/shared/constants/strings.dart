@@ -1,9 +1,10 @@
 class AppStrings {
   AppStrings._();
 
-  static const instructorName = "Tracy";
-  static const instructorLocation = "Washington State, USA";
-  static const instructorDescription = "I have a passion for languages and cultures.\nMy hope is to inspire to love...";
+  static const appTitle = "Fereli Sinan Efendi Erkek Öğrenci Yurdu";
+  static const avatarUrl =
+      "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000";
+  static const username = "Kullanıcı Adı";
   static const instructorTime = "8 PM to 9 PM";
   static const instructorDay = "Cumartesi";
   static const instructors = "Eğitmenlerimiz";
