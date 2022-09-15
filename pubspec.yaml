@@ -44,6 +44,7 @@ dependencies:
   flutter_svg: ^1.1.5
   flutter_bounceable: ^1.0.3
   google_fonts: ^3.0.1
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

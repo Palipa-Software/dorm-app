@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         title: 'Fereli Sinan Efendi Yurt Uygulaması',
         defaultTransition: Transition.downToUp,
         getPages: AppPages.routes,
-        initialRoute: Routes.HOMEPAGE,
+        initialRoute: Routes.ANNOUNCEMENTS,
         smartManagement: SmartManagement.keepFactory,
         theme: ThemeConfig.lightTheme,
         builder: EasyLoading.init(),
