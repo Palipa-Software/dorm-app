@@ -45,6 +45,7 @@ dependencies:
   flutter_bounceable: ^1.0.3
   google_fonts: ^3.0.1
   smooth_page_indicator: ^1.0.0+2
+  firebase_core: ^1.22.0
 
 dev_dependencies:
   flutter_test:
