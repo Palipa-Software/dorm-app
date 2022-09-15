@@ -1,3 +1,5 @@
+import 'package:dorm_app/modules/announcements/announcements_binding.dart';
+import 'package:dorm_app/modules/announcements/announcements_screen.dart';
 import 'package:dorm_app/modules/homepage/homepage_screen.dart';
 import 'package:dorm_app/modules/login/login_binding.dart';
 import 'package:dorm_app/modules/login/login_screen.dart';
@@ -26,6 +28,11 @@ class AppPages {
       name: Routes.HOMEPAGE,
       page: () => HomePageScreen(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: Routes.ANNOUNCEMENTS,
+      page: () => AnnouncementsScreen(),
+      binding: AnnouncementsBinding(),
     ),
   ];
 }
