@@ -1,5 +1,6 @@
 import 'package:dorm_app/routes/app_pages.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
+import 'package:dorm_app/shared/constants/strings.dart';
 import 'package:dorm_app/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         enableLog: false,
-        title: 'Fereli Sinan Efendi Yurt Uygulaması',
+        title: AppStrings.appTitle,
         defaultTransition: Transition.downToUp,
         getPages: AppPages.routes,
         initialRoute: Routes.SPLASH,

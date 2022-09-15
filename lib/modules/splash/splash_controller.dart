@@ -5,6 +5,6 @@ class SplashController extends GetxController {
   void onReady() async {
     super.onReady();
     await Future.delayed(Duration(milliseconds: 3000));
-    Get.toNamed(Routes.LOGIN);
+    Get.toNamed(Routes.HOMEPAGE);
   }
 }
