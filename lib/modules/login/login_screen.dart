@@ -1,12 +1,11 @@
 import 'package:dorm_app/modules/login/login_controller.dart';
+import 'package:dorm_app/modules/loginHelp/loginHelp_screen.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
+import 'package:dorm_app/shared/constants/strings.dart';
+import 'package:dorm_app/shared/widgets/custom_login_page_button.dart';
+import 'package:dorm_app/shared/widgets/custom_login_page_header_container.dart';
+import 'package:dorm_app/shared/widgets/custom_login_page_input.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter_bounceable/flutter_bounceable.dart';
-
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LoginScreen extends GetView<LoginController> {
@@ -18,24 +17,12 @@ class LoginScreen extends GetView<LoginController> {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned(
-            top: 0,
-            left: 25.w,
-            child: Container(
-              width: 55.w,
-              height: 55.h,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/ic_login.png"),
-                ),
-              ),
-            ),
-          ),
+          CustomLoginPageHeaderContainer(path: "ic_login"),
           Positioned(
             bottom: 0,
             child: Container(
               width: 100.w,
-              height: 45.h,
+              height: 50.h,
               padding: EdgeInsets.all(7.w),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.vertical(
@@ -46,6 +33,19 @@ class LoginScreen extends GetView<LoginController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+
+                  CustomLoginPageInput(
+                      isEmail: true,
+                      hintText: "E-mail",
+                      icon: Icons.mail_outlined),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  CustomLoginPageInput(
+                    isEmail: false,
+                    hintText: "Şifre",
+                    icon: Icons.lock_outlined,
+
                   TextFormField(
                     cursorColor: AppColors.oceanNight,
                     keyboardType: TextInputType.emailAddress,
@@ -104,44 +104,28 @@ class LoginScreen extends GetView<LoginController> {
                         ),
                       );
                     },
+
                   ),
                   SizedBox(
                     height: 5.h,
                   ),
-                  Bounceable(
-                    onTap: () {
+                  CustomLoginPageButton(
+                    func: () {
                       _controller.goHome();
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(18.sp),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18.sp),
-                        color: AppColors.oceanNight,
-                      ),
-                      width: 100.w,
-                      child: Text(
-                        "Giriş Yap",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.inconsolata(
-                          color: AppColors.white,
-                          fontSize: 17.sp,
-                        ),
-                      ),
-                    ),
+                    isTextButton: false,
+                    title: AppStrings.loginBtnText,
                   ),
-                  Bounceable(
-                    onTap: () {},
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 1.w, top: 2.h),
-                      child: Text(
-                        "Giriş yapmakta sorun mu yaşıyorsunuz?",
-                        style: GoogleFonts.inconsolata(
-                          color: AppColors.white,
-                          fontSize: 16.sp,
-                        ),
-                      ),
-                    ),
+                  SizedBox(
+                    height: 3.h,
                   ),
+                  CustomLoginPageButton(
+                    func: () {
+                      _controller.goLoginHelp();
+                    },
+                    isTextButton: true,
+                    title: AppStrings.loginTextBtnTitle,
+                  )
                 ],
               ),
             ),
