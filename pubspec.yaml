@@ -44,6 +44,7 @@ dependencies:
   flutter_svg: ^1.1.5
   flutter_bounceable: ^1.0.3
   google_fonts: ^3.0.1
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,7 @@ flutter:
   assets:
     - assets/jsons/
     - assets/svgs/
+    - assets/images/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
