@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+// ignore: must_be_immutable
 class CustomSvgAsset extends StatelessWidget {
   String path;
   Color color;

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1029076770680",
+    "project_id": "dorm-app15",
+    "storage_bucket": "dorm-app15.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029076770680:android:8632bb7508c52428efb28d",
+        "android_client_info": {
+          "package_name": "com.palipasoftware.dorm_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029076770680-heq64kca8e3vgn499d0pr1pp98u60o9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkgFGQxg_NXmSxRer2bE92yBGcv3nTWXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029076770680-heq64kca8e3vgn499d0pr1pp98u60o9a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
