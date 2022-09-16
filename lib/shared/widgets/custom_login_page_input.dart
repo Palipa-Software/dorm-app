@@ -7,7 +7,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../modules/login/login_controller.dart';
 import '../constants/colors.dart';
 
-class CustomLoginPageInput extends StatelessWidget {
+class CustomLoginPageInput extends GetView<LoginController> {
   final LoginController _controller = LoginController();
   String hintText;
   bool isEmail;
@@ -15,8 +15,12 @@ class CustomLoginPageInput extends StatelessWidget {
   IconData icon;
   TextInputType? keyboard;
   TextInputAction? action;
+  TextEditingController? controllerEmail;
+  TextEditingController? controllerPassword;
   CustomLoginPageInput(
       {required this.isEmail,
+      this.controllerEmail,
+      this.controllerPassword,
       required this.hintText,
       required this.icon,
       this.keyboard,
@@ -28,6 +32,7 @@ class CustomLoginPageInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return isEmail
         ? TextFormField(
+            controller: controllerEmail,
             cursorColor: AppColors.oceanNight,
             keyboardType: keyboard ?? TextInputType.emailAddress,
             textInputAction: action ?? TextInputAction.next,
@@ -62,6 +67,7 @@ class CustomLoginPageInput extends StatelessWidget {
         : Obx(
             () {
               return TextFormField(
+                controller: controllerPassword,
                 cursorColor: AppColors.oceanNight,
                 obscureText: _controller.isVisible.value,
                 obscuringCharacter: "*",
