@@ -31,10 +31,10 @@ class LoginController extends GetxController {
   _initialScreen(User? user) {
     if (user == null) {
       debugPrint("anasayfaya gitmedi");
-      Get.offAll(() => Routes.LOGIN);
+      Get.to(Routes.LOGIN);
     } else {
       debugPrint("anasayfaya gitti");
-      Get.offAll(() => Routes.HOMEPAGE);
+      Get.to(Routes.HOMEPAGE);
     }
   }
 
@@ -45,7 +45,7 @@ class LoginController extends GetxController {
   void goHome() async {
     Get.to(LoadingAnimation());
     await Future.delayed(Duration(milliseconds: 2500));
-    Get.offAllNamed(Routes.HOMEPAGE);
+    Get.toNamed(Routes.HOMEPAGE);
   }
 
   void goLoginHelp() {
