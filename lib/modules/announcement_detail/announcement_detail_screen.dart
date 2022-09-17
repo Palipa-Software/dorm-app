@@ -6,14 +6,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AnnouncementDetailScreen extends GetView<AnnouncementDetailController> {
-  const AnnouncementDetailScreen({super.key});
+  AnnouncementDetailScreen({super.key});
+  AnnouncementDetailController controller =
+      Get.put(AnnouncementDetailController());
 
   @override
   Widget build(BuildContext context) {
+    var data = Get.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Duyuru Başlığı",
+          data[0],
           style: GoogleFonts.inconsolata(
             color: Colors.white,
             fontSize: 18.sp,
@@ -29,7 +32,8 @@ class AnnouncementDetailScreen extends GetView<AnnouncementDetailController> {
             Container(
               width: 90.w,
               height: 19.h,
-              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
               child: Center(child: Text("Duyuru Resmi")),
             ),
             SizedBox(
@@ -39,14 +43,19 @@ class AnnouncementDetailScreen extends GetView<AnnouncementDetailController> {
               padding: EdgeInsets.all(10),
               width: 90.w,
               height: 60.h,
-              decoration: BoxDecoration(color: AppColors.lakeView, borderRadius: BorderRadius.circular(20)),
+              decoration: BoxDecoration(
+                  color: AppColors.lakeView,
+                  borderRadius: BorderRadius.circular(20)),
               child: ListView(
                 children: [
                   Center(
                       child: Text(
-                    'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
+                    data[1],
                     style: GoogleFonts.inconsolata(
-                        height: 0.3.h, color: Colors.white, fontSize: 18.sp, fontWeight: FontWeight.w400),
+                        height: 0.3.h,
+                        color: Colors.white,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w400),
                   )),
                 ],
               ),
