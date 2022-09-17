@@ -7,4 +7,11 @@ abstract class Routes {
   static const LOGINHELP = '/loginHelp';
   static const ANNOUNCEMENTS = '/announcements';
   static const FOODLIST = '/foodlist';
+  static const BREAKFAST = '/breakfast';
+  static const DESSERTS = '/desserts';
+  static const DRINKS = '/drinks';
+  static const MAINCOURSE = '/mainCourse';
+  static const RICEANDPASTA = '/riceAndPasta';
+  static const SALADANDPICKLE = '/saladAndPickle';
+  static const SOUPS = '/soups';
 }
