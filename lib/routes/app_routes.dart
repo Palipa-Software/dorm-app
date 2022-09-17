@@ -14,4 +14,5 @@ abstract class Routes {
   static const RICEANDPASTA = '/riceAndPasta';
   static const SALADANDPICKLE = '/saladAndPickle';
   static const SOUPS = '/soups';
+  static const ANNOUNCEMENTDETAIL = '/announcement_detail';
 }
