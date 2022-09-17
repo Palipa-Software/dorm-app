@@ -39,7 +39,6 @@ dependencies:
   flutter_easyloading: ^3.0.5
   responsive_sizer: ^3.1.0
   lottie: ^1.4.2
-  shared_preferences: ^2.0.15
   flutter_svg: ^1.1.5
   flutter_bounceable: ^1.0.3
   google_fonts: ^3.0.1
@@ -47,6 +46,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   firebase_core: ^1.22.0
   firebase_auth: ^3.9.0
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
