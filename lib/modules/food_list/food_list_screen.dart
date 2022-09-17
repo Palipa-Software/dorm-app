@@ -45,7 +45,7 @@ class FoodListScreen extends GetView<FoodListController> {
 final FoodListController controller = FoodListController();
 List foodButton = [
   CustomFoodListButton(
-    func: controller.foodDataReadOneTime,
+    func: controller.goBreakfast,
     title: "Kahvaltılıklar",
   ),
   CustomFoodListButton(

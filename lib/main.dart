@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         title: AppStrings.appTitle,
         defaultTransition: Transition.downToUp,
         getPages: AppPages.routes,
-        initialRoute: Routes.ANNOUNCEMENTS,
+        initialRoute: Routes.HOMEPAGE,
         smartManagement: SmartManagement.keepFactory,
         theme: ThemeConfig.lightTheme,
         builder: EasyLoading.init(),
