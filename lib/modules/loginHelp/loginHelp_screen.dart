@@ -1,7 +1,5 @@
-import 'package:dorm_app/modules/login/login_controller.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_controller.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
-import 'package:dorm_app/shared/constants/padding.dart';
 import 'package:dorm_app/shared/constants/strings.dart';
 import 'package:dorm_app/shared/widgets/custom_login_page_button.dart';
 import 'package:dorm_app/shared/widgets/custom_login_page_input.dart';
@@ -10,8 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class LoginHelpScreen extends GetView<LoginController> {
-  final LoginHelpController _controller = LoginHelpController();
+class LoginHelpScreen extends GetView<LoginHelpController> {
   LoginHelpScreen({super.key});
 
   @override
@@ -32,7 +29,7 @@ class LoginHelpScreen extends GetView<LoginController> {
               ),
               CustomLoginPageButton(
                 func: () {
-                  _controller.goBack();
+                  controller.goBack();
                 },
                 isTextButton: true,
                 title: AppStrings.goBackText,
@@ -60,6 +57,7 @@ class LoginHelpScreen extends GetView<LoginController> {
                 height: 5.h,
               ),
               CustomLoginPageInput(
+                controllerEmail: controller.nameSurname,
                 isEmail: true,
                 hintText: AppStrings.nameSurname,
                 icon: Icons.people_outline,
@@ -68,6 +66,7 @@ class LoginHelpScreen extends GetView<LoginController> {
                 height: 5.h,
               ),
               CustomLoginPageInput(
+                controllerEmail: controller.roomInfo,
                 isEmail: true,
                 hintText: AppStrings.roomInfo,
                 icon: Icons.bed_outlined,
@@ -77,6 +76,7 @@ class LoginHelpScreen extends GetView<LoginController> {
                 height: 5.h,
               ),
               CustomLoginPageInput(
+                controllerEmail: controller.phoneNumber,
                 isEmail: true,
                 hintText: AppStrings.phoneNumber,
                 icon: Icons.phone_outlined,
@@ -86,6 +86,7 @@ class LoginHelpScreen extends GetView<LoginController> {
                 height: 5.h,
               ),
               CustomLoginPageInput(
+                controllerEmail: controller.problemText,
                 isEmail: true,
                 hintText: AppStrings.loginProblem,
                 icon: Icons.message_outlined,
@@ -96,7 +97,17 @@ class LoginHelpScreen extends GetView<LoginController> {
                 height: 5.h,
               ),
               CustomLoginPageButton(
-                func: () {},
+                func: () {
+                  controller.createComplaint(
+                      nameSurname: controller.nameSurname.text,
+                      roomInfo: controller.roomInfo.text,
+                      phoneNumber: controller.phoneNumber.text,
+                      problemText: controller.problemText.text);
+                  controller.nameSurname.text = "";
+                  controller.roomInfo.text = "";
+                  controller.phoneNumber.text = "";
+                  controller.problemText.text = "";
+                },
                 isTextButton: false,
                 title: AppStrings.loginHelpBtnText,
                 color: AppColors.lakeView,

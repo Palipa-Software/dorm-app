@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:dorm_app/modules/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -51,6 +52,7 @@ class HomePageScreen extends GetView<HomePageController> {
 
 class HomePageDrawer extends StatelessWidget {
   final HomePageController _controller = HomePageController();
+  final LoginController controllerLogin = LoginController();
 
   HomePageDrawer({
     Key? key,
@@ -70,7 +72,7 @@ class HomePageDrawer extends StatelessWidget {
                   backgroundImage: AssetImage("assets/images/img_avatar.jpg"),
                 ),
                 Text(
-                  "Kullanıcı Adı",
+                  controllerLogin.auth.currentUser!.email.toString(),
                   style: GoogleFonts.inconsolata(
                       fontWeight: FontWeight.w600, fontSize: 18.sp),
                 )
