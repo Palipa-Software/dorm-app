@@ -2,6 +2,7 @@ import 'package:dorm_app/modules/homepage/homepage_screen.dart';
 import 'package:dorm_app/modules/login/login_screen.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:dorm_app/shared/services/auth_service.dart';
+import 'package:dorm_app/shared/utils/shared_preferences.dart';
 import 'package:dorm_app/shared/widgets/loading_animation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,6 +20,12 @@ class LoginController extends GetxController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   RxBool isVisible = true.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    SharedPrefs.loginRead();
+  }
 
   @override
   void onReady() {
@@ -42,10 +49,10 @@ class LoginController extends GetxController {
     isVisible.value = !isVisible.value;
   }
 
-  void goHome() async {
+  Future goHome() async {
     Get.to(LoadingAnimation());
     await Future.delayed(Duration(milliseconds: 2500));
-    Get.toNamed(Routes.HOMEPAGE);
+    Get.offAllNamed(Routes.HOMEPAGE);
   }
 
   void goLoginHelp() {
@@ -62,14 +69,19 @@ class LoginController extends GetxController {
     }
   }
 
-  void login(String email, String password) async {
+  Future login(String email, String password) async {
     try {
+      debugPrint("cathce düşmedim ama bir sıkıntı var"); //     KALDIRILACAK
+      debugPrint(email); //                                     KALDIRILACAK
+      debugPrint(password); //                                  KALDIRILACAK
       await auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+      SharedPrefs.loginSaver(email, password); //               TEKRAR BAKILACAK
       goHome();
     } catch (e) {
+      debugPrint("catche düştüm");
       Get.snackbar(
         "Giriş Hata",
         "E-mail ya da şifre boş kalamaz!!!",

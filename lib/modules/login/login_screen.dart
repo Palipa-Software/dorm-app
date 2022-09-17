@@ -60,7 +60,7 @@ class LoginScreen extends GetView<LoginController> {
                   ),
                   CustomLoginPageButton(
                     func: () async {
-                      _controller.login(
+                      await _controller.login(
                         _controller.emailController.text.trim(),
                         _controller.passwordController.text.trim(),
                       );
