@@ -1,3 +1,7 @@
+import 'package:dorm_app/modules/activity/activity_binding.dart';
+import 'package:dorm_app/modules/activity/activity_screen.dart';
+import 'package:dorm_app/modules/activity_detail/activity_detail_binding.dart';
+import 'package:dorm_app/modules/activity_detail/activity_detail_screen.dart';
 import 'package:dorm_app/modules/announcement_detail/announcement_detail_binding.dart';
 import 'package:dorm_app/modules/announcement_detail/announcement_detail_screen.dart';
 import 'package:dorm_app/modules/announcements/announcements_binding.dart';
@@ -103,6 +107,16 @@ class AppPages {
       name: Routes.ANNOUNCEMENTDETAIL,
       page: () => AnnouncementDetailScreen(),
       binding: AnnouncementDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.ACTIVITY,
+      page: () => ActivityScreen(),
+      binding: ActivityBinding(),
+    ),
+    GetPage(
+      name: Routes.ACTIVITYDETAIL,
+      page: () => ActivityDetailScreen(),
+      binding: ActivityDetailBinding(),
     ),
   ];
 }
