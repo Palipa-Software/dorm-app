@@ -6,6 +6,8 @@ import 'package:dorm_app/modules/announcement_detail/announcement_detail_binding
 import 'package:dorm_app/modules/announcement_detail/announcement_detail_screen.dart';
 import 'package:dorm_app/modules/announcements/announcements_binding.dart';
 import 'package:dorm_app/modules/announcements/announcements_screen.dart';
+import 'package:dorm_app/modules/complaints/complaints_binding.dart';
+import 'package:dorm_app/modules/complaints/complaints_screen.dart';
 import 'package:dorm_app/modules/food_list/food_list_binding.dart';
 import 'package:dorm_app/modules/food_list/food_list_items_pages/breakfast/breakfast_binding.dart';
 import 'package:dorm_app/modules/food_list/food_list_items_pages/breakfast/breakfast_screen.dart';
@@ -117,6 +119,11 @@ class AppPages {
       name: Routes.ACTIVITYDETAIL,
       page: () => ActivityDetailScreen(),
       binding: ActivityDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.COMPLAINT,
+      page: () => ComplaintsScreen(),
+      binding: ComplaintBinding(),
     ),
   ];
 }

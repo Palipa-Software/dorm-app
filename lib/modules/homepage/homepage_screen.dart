@@ -192,7 +192,7 @@ class GridMenu extends StatelessWidget {
             title: "Yemek Listesi",
             func: controller.goFoodList),
         CustomHomePageMenuButton(
-            path: "ic_warning", title: "Şikayet", func: controller.dataRead),
+            path: "ic_warning", title: "Şikayet", func: controller.goComplaint),
         CustomHomePageMenuButton(
             path: "ic_bell", title: "Oda Teknik Destek ", func: () {}),
         CustomHomePageMenuButton(

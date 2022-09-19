@@ -17,4 +17,5 @@ abstract class Routes {
   static const ANNOUNCEMENTDETAIL = '/announcement_detail';
   static const ACTIVITY = '/activity';
   static const ACTIVITYDETAIL = '/activity_detail';
+  static const COMPLAINT = '/complaints';
 }
