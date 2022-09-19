@@ -6,23 +6,111 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:dorm_app/modules/food_list/food_list_controller.dart';
-import 'package:dorm_app/modules/food_list/food_list_items.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:dorm_app/shared/constants/padding.dart';
 
 class FoodListScreen extends GetView<FoodListController> {
-  final FoodListController controller = FoodListController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Yemek Listesi",
-          style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            "Yemek Listesi",
+            style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
+          ),
+        ),
+        body: Padding(
+          padding: AppPadding.projectPadding,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              FoodListContainer(
+                  title: "Bugün Yemek Listesi",
+                  breakfastFunc: controller.goTodayBreakfast,
+                  dinnerFunc: controller.goTodayDinner),
+              FoodListContainer(
+                  title: "Yarın Yemek Listesi",
+                  breakfastFunc: controller.goTomorrowBreakfast,
+                  dinnerFunc: controller.goTomorrowDinner),
+            ],
+          ),
+        ));
+  }
+}
+
+class FoodListContainer extends StatelessWidget {
+  String title;
+  Function() breakfastFunc;
+  Function() dinnerFunc;
+  FoodListContainer({
+    Key? key,
+    required this.title,
+    required this.breakfastFunc,
+    required this.dinnerFunc,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100.w,
+      height: 35.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16.sp),
+        color: AppColors.lakeView,
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 4.w),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              title,
+              style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 18.sp, fontWeight: FontWeight.w600),
+            ),
+            CustomFoodListButton(title: "Kahvaltı", func: breakfastFunc),
+            CustomFoodListButton(title: "Akşam Yemeği", func: dinnerFunc),
+          ],
         ),
       ),
-      body: Padding(
+    );
+  }
+}
+
+// ignore: must_be_immutable
+class CustomFoodListButton extends StatelessWidget {
+  String title;
+  Function() func;
+  CustomFoodListButton({
+    Key? key,
+    required this.title,
+    required this.func,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: AppColors.oceanNight,
+      elevation: 10,
+      borderRadius: BorderRadius.circular(16.sp),
+      child: Bounceable(
+        onTap: func,
+        child: Container(
+          alignment: Alignment.center,
+          width: 100.w,
+          height: 10.h,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(16.sp), color: AppColors.oceanNight),
+          child: Text(
+            title,
+            style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 22.sp, fontWeight: FontWeight.w600),
+          ),
+        ),
+      ),
+    );
+  }
+}
+/*
+Padding(
         padding: AppPadding.projectPadding,
         child: Container(
           width: 100.w,
@@ -38,69 +126,4 @@ class FoodListScreen extends GetView<FoodListController> {
           ),
         ),
       ),
-    );
-  }
-}
-
-final FoodListController controller = FoodListController();
-List foodButton = [
-  CustomFoodListButton(
-    func: controller.goBreakfast,
-    title: "Kahvaltılıklar",
-  ),
-  CustomFoodListButton(
-    func: controller.goMainCourse,
-    title: "Ana Yemekler",
-  ),
-  CustomFoodListButton(
-    func: controller.goSoups,
-    title: "Çorbalar",
-  ),
-  CustomFoodListButton(
-    func: controller.goRiceAndPasta,
-    title: "Pilav Makarnalar",
-  ),
-  CustomFoodListButton(
-    func: controller.goDeserts,
-    title: "Tatlılar",
-  ),
-  CustomFoodListButton(
-    func: controller.goSaladAndPickle,
-    title: "Salata ve Turşular",
-  ),
-  CustomFoodListButton(
-    func: controller.goDrinks,
-    title: "İçecekler",
-  ),
-];
-
-class CustomFoodListButton extends StatelessWidget {
-  String title;
-  Function() func;
-  CustomFoodListButton({
-    Key? key,
-    required this.title,
-    required this.func,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      elevation: 10,
-      borderRadius: BorderRadius.circular(16.sp),
-      child: Bounceable(
-        onTap: func,
-        child: Container(
-          alignment: Alignment.center,
-          width: 100.w,
-          height: 10.h,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(16.sp), color: AppColors.lakeView),
-          child: Text(
-            title,
-            style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 22.sp, fontWeight: FontWeight.w600),
-          ),
-        ),
-      ),
-    );
-  }
-}
+      */

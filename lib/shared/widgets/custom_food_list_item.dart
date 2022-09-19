@@ -7,12 +7,11 @@ import '../constants/colors.dart';
 class CustomFoodListItem extends StatelessWidget {
   String foodName;
   String foodWeight;
-  String foodPrice;
+
   CustomFoodListItem({
     Key? key,
     required this.foodName,
     required this.foodWeight,
-    required this.foodPrice,
   }) : super(key: key);
 
   @override
@@ -24,22 +23,27 @@ class CustomFoodListItem extends StatelessWidget {
         color: AppColors.lakeView,
         borderRadius: BorderRadius.circular(16.sp),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            foodName,
-            style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 18.sp),
-          ),
-          Text(
-            foodWeight + " Gram",
-            style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 18.sp),
-          ),
-          Text(
-            foodPrice + " TL",
-            style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 18.sp),
-          )
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 8.w),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+              child: Text(
+                foodName,
+                style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 18.sp),
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            Flexible(
+              child: Text(
+                foodWeight,
+                style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 18.sp),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

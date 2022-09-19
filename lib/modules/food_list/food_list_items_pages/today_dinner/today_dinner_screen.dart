@@ -1,18 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dorm_app/modules/food_list/food_list_items.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/breakfast/breakfast_controller.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/desserts/desserts_controller.dart';
-import 'package:dorm_app/shared/constants/padding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/today_dinner/today_dinner_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../shared/constants/colors.dart';
+import '../../../../shared/constants/padding.dart';
 import '../../../../shared/widgets/custom_food_list_item.dart';
 
-class DessertsScreen extends GetView<DessertsController> {
-  const DessertsScreen({super.key});
+class TodayDinnerScreen extends GetView<TodayDinnerController> {
+  const TodayDinnerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class DessertsScreen extends GetView<DessertsController> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Tatlılar",
+            "Bugün Akşam Yemeği Listesi",
             style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
           ),
         ),
@@ -47,10 +45,8 @@ class DessertsScreen extends GetView<DessertsController> {
                       child: ListView.separated(
                           itemBuilder: (context, index) {
                             return CustomFoodListItem(
-                              foodName: snapshot.data?.docs[index]["foodName"],
-                              foodPrice: snapshot.data?.docs[index]["foodPrice"],
-                              foodWeight: snapshot.data?.docs[index]["foodWeight"],
-                            );
+                                foodName: snapshot.data?.docs[index]["foodName"],
+                                foodWeight: snapshot.data?.docs[index]["foodWeight"]);
                           },
                           separatorBuilder: (context, index) => SizedBox(
                                 height: 2.h,

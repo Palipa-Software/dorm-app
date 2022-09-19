@@ -26,8 +26,7 @@ class HomePageScreen extends GetView<HomePageController> {
         centerTitle: true,
         title: Text(
           AppStrings.appTitle,
-          style: GoogleFonts.inconsolata(
-              fontSize: 17.sp, fontWeight: FontWeight.w700),
+          style: GoogleFonts.inconsolata(fontSize: 17.sp, fontWeight: FontWeight.w700),
         ),
       ),
       body: Padding(
@@ -73,8 +72,7 @@ class HomePageDrawer extends StatelessWidget {
                 ),
                 Text(
                   controllerLogin.auth.currentUser!.email.toString(),
-                  style: GoogleFonts.inconsolata(
-                      fontWeight: FontWeight.w600, fontSize: 18.sp),
+                  style: GoogleFonts.inconsolata(fontWeight: FontWeight.w600, fontSize: 18.sp),
                 )
               ],
             ),
@@ -87,8 +85,7 @@ class HomePageDrawer extends StatelessWidget {
             child: ListTile(
               title: Text(
                 "Çıkış Yap",
-                style: GoogleFonts.inconsolata(
-                    fontSize: 16.sp, fontWeight: FontWeight.w500),
+                style: GoogleFonts.inconsolata(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
               trailing: SvgPicture.asset(
                 "assets/svgs/ic_logout.svg",
@@ -183,20 +180,11 @@ class GridMenu extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
-        CustomHomePageMenuButton(
-            path: "ic_inbox_in",
-            title: "Duyurlar",
-            func: controller.goAnnouncement),
-        CustomHomePageMenuButton(
-            path: "ic_basket_ok",
-            title: "Yemek Listesi",
-            func: controller.goFoodList),
-        CustomHomePageMenuButton(
-            path: "ic_warning", title: "Şikayet", func: controller.goComplaint),
-        CustomHomePageMenuButton(
-            path: "ic_bell", title: "Oda Teknik Destek ", func: () {}),
-        CustomHomePageMenuButton(
-            path: "ic_calendar", title: "Etkinlikler", func: () {}),
+        CustomHomePageMenuButton(path: "ic_inbox_in", title: "Duyurlar", func: controller.goAnnouncement),
+        CustomHomePageMenuButton(path: "ic_basket_ok", title: "Yemek Listesi", func: controller.goFoodList),
+        CustomHomePageMenuButton(path: "ic_warning", title: "Şikayet", func: controller.goComplaint),
+        CustomHomePageMenuButton(path: "ic_bell", title: "Oda Teknik Destek ", func: () {}),
+        CustomHomePageMenuButton(path: "ic_calendar", title: "Etkinlikler", func: controller.goActivity),
         CustomHomePageMenuButton(path: "ic_star", title: "Puanla", func: () {}),
       ],
     );

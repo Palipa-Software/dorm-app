@@ -1,18 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dorm_app/modules/food_list/food_list_items.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/breakfast/breakfast_controller.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/drinks/drinks_controller.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/tomorrow_dinner/tomorrow_dinner_controller.dart';
 import 'package:dorm_app/shared/constants/padding.dart';
-import 'package:dorm_app/shared/widgets/custom_food_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../shared/constants/colors.dart';
+import '../../../../shared/widgets/custom_food_list_item.dart';
 
-class DrinksScreen extends GetView<DrinksController> {
-  const DrinksScreen({super.key});
+class TomorrowDinnerScreen extends GetView<TomorrowDinnerController> {
+  const TomorrowDinnerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class DrinksScreen extends GetView<DrinksController> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "İçecekler",
+            "Yarın Akşam Yemeği Listesi",
             style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
           ),
         ),
@@ -47,10 +45,8 @@ class DrinksScreen extends GetView<DrinksController> {
                       child: ListView.separated(
                           itemBuilder: (context, index) {
                             return CustomFoodListItem(
-                              foodName: snapshot.data?.docs[index]["foodName"],
-                              foodPrice: snapshot.data?.docs[index]["foodPrice"],
-                              foodWeight: snapshot.data?.docs[index]["foodWeight"],
-                            );
+                                foodName: snapshot.data?.docs[index]["foodName"],
+                                foodWeight: snapshot.data?.docs[index]["foodWeight"]);
                           },
                           separatorBuilder: (context, index) => SizedBox(
                                 height: 2.h,
@@ -70,3 +66,24 @@ class DrinksScreen extends GetView<DrinksController> {
         ));
   }
 }
+/*
+Padding(
+          padding: AppPadding.projectPadding,
+          child: Column(
+            children: [
+              Container(
+                width: 100.w,
+                height: 85.h,
+                child: ListView.separated(
+                    itemBuilder: (context, index) {
+                      return FoodListItems.breakfast[index];
+                    },
+                    separatorBuilder: (context, index) => SizedBox(
+                          height: 2.h,
+                        ),
+                    itemCount: FoodListItems.breakfast.length),
+              )
+            ],
+          ),
+        ),
+        */
