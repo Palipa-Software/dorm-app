@@ -18,6 +18,10 @@ class HomePageController extends GetxController {
     Get.toNamed(Routes.FOODLIST);
   }
 
+  void goComplaint() {
+    Get.toNamed(Routes.COMPLAINT);
+  }
+
   void signOut() async {
     await auth.signOut();
     Get.to(LoadingAnimation());

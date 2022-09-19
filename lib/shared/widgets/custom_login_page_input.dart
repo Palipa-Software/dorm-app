@@ -11,6 +11,7 @@ class CustomLoginPageInput extends GetView<LoginController> {
   final LoginController _controller = LoginController();
   String hintText;
   bool isEmail;
+  bool? isReadOnly;
   int isMessage;
   IconData icon;
   TextInputType? keyboard;
@@ -21,6 +22,7 @@ class CustomLoginPageInput extends GetView<LoginController> {
       {required this.isEmail,
       this.controllerEmail,
       this.controllerPassword,
+      this.isReadOnly,
       required this.hintText,
       required this.icon,
       this.keyboard,
@@ -33,6 +35,7 @@ class CustomLoginPageInput extends GetView<LoginController> {
     return isEmail
         ? TextFormField(
             controller: controllerEmail,
+            readOnly: isReadOnly ?? false,
             cursorColor: AppColors.oceanNight,
             keyboardType: keyboard ?? TextInputType.emailAddress,
             textInputAction: action ?? TextInputAction.next,
