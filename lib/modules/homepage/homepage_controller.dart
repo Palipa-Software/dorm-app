@@ -23,13 +23,12 @@ class HomePageController extends GetxController {
     Get.toNamed(Routes.COMPLAINT);
   }
 
-
   void goRoomTechSupport() {
     Get.toNamed(Routes.ROOMTECHNICALSUPPORT);
+  }
 
   void goActivity() {
     Get.toNamed(Routes.ACTIVITY);
-
   }
 
   void signOut() async {
