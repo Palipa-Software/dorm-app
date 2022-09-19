@@ -1,18 +1,18 @@
-import 'package:dorm_app/modules/complaints/complaints_controller.dart';
 import 'package:dorm_app/modules/login/login_controller.dart';
+import 'package:dorm_app/modules/roomTechnicalSupport/roomTechnicalSupport_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../../shared/constants/colors.dart';
 import '../../shared/constants/strings.dart';
 import '../../shared/widgets/custom_login_page_button.dart';
 import '../../shared/widgets/custom_login_page_input.dart';
 
-class ComplaintsScreen extends GetView<ComplaintsController> {
+class RoomTechnicalSupportScreen
+    extends GetView<RoomTechnicalSupportController> {
   final LoginController _controller = LoginController();
-  ComplaintsScreen({super.key});
+  RoomTechnicalSupportScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
       appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Şikayet",
+            "Oda Teknik Destek",
             style: GoogleFonts.inconsolata(
               fontSize: 19.sp,
               fontWeight: FontWeight.w700,
@@ -36,7 +36,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Şikayet Formu",
+                "Oda Teknik Destek Şikayet Formu",
                 style: GoogleFonts.inconsolata(
                   fontSize: 19.sp,
                   fontWeight: FontWeight.w700,
@@ -57,11 +57,22 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
               ),
               CustomLoginPageInput(
                 isReadOnly: true,
-                controllerEmail: controller.initial(_controller.auth.currentUser!.email),
+                controllerEmail:
+                    controller.initial(_controller.auth.currentUser!.email),
                 isEmail: true,
                 hintText: "E-mail",
                 icon: Icons.email_outlined,
                 keyboard: TextInputType.emailAddress,
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              CustomLoginPageInput(
+                controllerEmail: controller.roomInfo,
+                isEmail: true,
+                hintText: "Oda/Yatak Bilgisi",
+                icon: Icons.bed_outlined,
+                keyboard: TextInputType.visiblePassword,
               ),
               SizedBox(
                 height: 5.h,
@@ -89,14 +100,15 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
               ),
               CustomLoginPageButton(
                 func: () {
-                  controller.createHomePageComplaint(
+                  controller.createRoomTechSupport(
                       nameSurname: controller.nameSurname.text,
+                      roomInfo: controller.roomInfo.text,
+                      email: _controller.auth.currentUser!.email.toString(),
                       subjectOfComplaint: controller.subjectOfComplaint.text,
-                      complaintText: controller.complaintText.text,
-                      email: _controller.auth.currentUser!.email.toString());
+                      complaintText: controller.complaintText.text);
                   controller.nameSurname.text = "";
+                  controller.roomInfo.text = "";
                   controller.subjectOfComplaint.text = "";
-                  controller.complaintsUnit.text = "";
                   controller.complaintText.text = "";
                 },
                 isTextButton: false,

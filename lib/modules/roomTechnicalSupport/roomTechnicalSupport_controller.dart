@@ -1,46 +1,41 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dorm_app/modules/food_list/food_list_screen.dart';
-import 'package:dorm_app/modules/login/login_controller.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../shared/constants/colors.dart';
-
-class ComplaintsController extends GetxController {
-  final LoginController _controller = LoginController();
-  FirebaseAuth auth = FirebaseAuth.instance;
-
+class RoomTechnicalSupportController extends GetxController {
   initial(val) {
     return TextEditingController(text: val);
   }
 
-  final TextEditingController complaintText = TextEditingController();
-  final TextEditingController complaintsUnit = TextEditingController();
-  // final TextEditingController email = TextEditingController();
   final TextEditingController nameSurname = TextEditingController();
+  final TextEditingController roomInfo = TextEditingController();
+  // final TextEditingController phoneNumber = TextEditingController();
   final TextEditingController subjectOfComplaint = TextEditingController();
+  final TextEditingController complaintText = TextEditingController();
 
-  void goBack() {
-    Get.back();
-  }
-
-  Future createHomePageComplaint(
-      {required String nameSurname,
-      required String subjectOfComplaint,
-      required String email,
-      required String complaintText}) async {
-    if (subjectOfComplaint.isNotEmpty && complaintText.isNotEmpty) {
+  Future createRoomTechSupport({
+    required String nameSurname,
+    required String roomInfo,
+    required String email,
+    required String subjectOfComplaint,
+    required String complaintText,
+  }) async {
+    if (nameSurname.isNotEmpty &&
+        roomInfo.isNotEmpty &&
+        subjectOfComplaint.isNotEmpty &&
+        complaintText.isNotEmpty) {
       final docComplaint = FirebaseFirestore.instance
-          .collection("homePageComplaint")
+          .collection("roomTechnicalSupport")
           .doc(DateTime.now().toString());
 
       final json = {
         "nameSurname": nameSurname,
-        "subjectOfComplaint": subjectOfComplaint,
+        "roomInfo": roomInfo,
         "email": email,
+        "subjectOfComplaint": subjectOfComplaint,
         "complaintText": complaintText
       };
       await docComplaint.set(json);

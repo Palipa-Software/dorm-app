@@ -1,19 +1,27 @@
+import 'package:dorm_app/modules/food_list/food_list_screen.dart';
+import 'package:dorm_app/modules/login/login_controller.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../routes/app_pages.dart';
+
 class SharedPrefs {
+  final LoginController controller = LoginController();
   static loginSaver(String email, String password) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('email', email);
-    prefs.setString('password', password);
+    await prefs.setString('email', email);
+    await prefs.setString('password', password);
   }
 
   static loginRead() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    final email = prefs.getString('email') ?? '';
-    final password = prefs.getString('password') ?? '';
-
-    debugPrint(email);
-    debugPrint(password);
+    String? email = await prefs.getString('email') ?? "";
+    String? password = await prefs.getString('password') ?? "";
+    if (email.isNotEmpty && password.isNotEmpty) {
+      Get.offAllNamed(Routes.HOMEPAGE);
+    } else {
+      Get.offAllNamed(Routes.LOGIN);
+    }
   }
 }

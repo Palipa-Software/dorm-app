@@ -2,11 +2,14 @@ import 'dart:developer';
 
 import 'package:dorm_app/modules/login/login_controller.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_screen.dart';
+import 'package:dorm_app/routes/app_pages.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:dorm_app/shared/constants/strings.dart';
+import 'package:dorm_app/shared/widgets/circularProgress.dart';
 import 'package:dorm_app/shared/widgets/custom_login_page_button.dart';
 import 'package:dorm_app/shared/widgets/custom_login_page_header_container.dart';
 import 'package:dorm_app/shared/widgets/custom_login_page_input.dart';
+import 'package:dorm_app/shared/widgets/loading_animation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';

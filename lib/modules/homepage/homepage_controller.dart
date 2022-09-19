@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dorm_app/shared/utils/shared_preferences.dart';
 import 'package:dorm_app/shared/widgets/loading_animation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,14 +23,20 @@ class HomePageController extends GetxController {
     Get.toNamed(Routes.COMPLAINT);
   }
 
+
+  void goRoomTechSupport() {
+    Get.toNamed(Routes.ROOMTECHNICALSUPPORT);
+
   void goActivity() {
     Get.toNamed(Routes.ACTIVITY);
+
   }
 
   void signOut() async {
     await auth.signOut();
     Get.to(LoadingAnimation());
     Get.toNamed(Routes.LOGIN);
+    SharedPrefs.loginSaver("", "");
   }
 
   void dataRead() async {
