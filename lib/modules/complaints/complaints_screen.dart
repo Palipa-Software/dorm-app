@@ -57,8 +57,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
               ),
               CustomLoginPageInput(
                 isReadOnly: true,
-                controllerEmail:
-                    controller.initial(_controller.auth.currentUser!.email),
+                controllerEmail: controller.initial(_controller.auth.currentUser!.email),
                 isEmail: true,
                 hintText: "E-mail",
                 icon: Icons.email_outlined,

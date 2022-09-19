@@ -2,31 +2,19 @@ import 'package:get/get.dart';
 import '../../routes/app_pages.dart';
 
 class FoodListController extends GetxController {
-  void goBreakfast() {
-    Get.toNamed(Routes.BREAKFAST);
+  void goTodayBreakfast() {
+    Get.toNamed(Routes.TODAYBREAKFAST);
   }
 
-  void goDeserts() {
-    Get.toNamed(Routes.DESSERTS);
+  void goTodayDinner() {
+    Get.toNamed(Routes.TODAYDINNER);
   }
 
-  void goDrinks() {
-    Get.toNamed(Routes.DRINKS);
+  void goTomorrowBreakfast() {
+    Get.toNamed(Routes.TOMORROWBREAKFAST);
   }
 
-  void goMainCourse() {
-    Get.toNamed(Routes.MAINCOURSE);
-  }
-
-  void goRiceAndPasta() {
-    Get.toNamed(Routes.RICEANDPASTA);
-  }
-
-  void goSaladAndPickle() {
-    Get.toNamed(Routes.SALADANDPICKLE);
-  }
-
-  void goSoups() {
-    Get.toNamed(Routes.SOUPS);
+  void goTomorrowDinner() {
+    Get.toNamed(Routes.TOMORROWDINNER);
   }
 }

@@ -27,8 +27,7 @@ class HomePageScreen extends GetView<HomePageController> {
         centerTitle: true,
         title: Text(
           AppStrings.appTitle,
-          style: GoogleFonts.inconsolata(
-              fontSize: 17.sp, fontWeight: FontWeight.w700),
+          style: GoogleFonts.inconsolata(fontSize: 17.sp, fontWeight: FontWeight.w700),
         ),
       ),
       body: Padding(
@@ -73,9 +72,11 @@ class HomePageDrawer extends StatelessWidget {
                   backgroundImage: AssetImage("assets/images/img_avatar.jpg"),
                 ),
                 Text(
+
                   _controller.auth.currentUser!.email.toString(),
                   style: GoogleFonts.inconsolata(
                       fontWeight: FontWeight.w600, fontSize: 18.sp),
+
                 )
               ],
             ),
@@ -88,8 +89,7 @@ class HomePageDrawer extends StatelessWidget {
             child: ListTile(
               title: Text(
                 "Çıkış Yap",
-                style: GoogleFonts.inconsolata(
-                    fontSize: 16.sp, fontWeight: FontWeight.w500),
+                style: GoogleFonts.inconsolata(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
               trailing: SvgPicture.asset(
                 "assets/svgs/ic_logout.svg",
@@ -184,6 +184,7 @@ class GridMenu extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
+
         CustomHomePageMenuButton(
             path: "ic_inbox_in",
             title: "Duyurlar",
@@ -200,6 +201,7 @@ class GridMenu extends StatelessWidget {
             func: controller.goRoomTechSupport),
         CustomHomePageMenuButton(
             path: "ic_calendar", title: "Etkinlikler", func: () {}),
+
         CustomHomePageMenuButton(path: "ic_star", title: "Puanla", func: () {}),
       ],
     );

@@ -23,8 +23,13 @@ class HomePageController extends GetxController {
     Get.toNamed(Routes.COMPLAINT);
   }
 
+
   void goRoomTechSupport() {
     Get.toNamed(Routes.ROOMTECHNICALSUPPORT);
+
+  void goActivity() {
+    Get.toNamed(Routes.ACTIVITY);
+
   }
 
   void signOut() async {
@@ -35,8 +40,7 @@ class HomePageController extends GetxController {
   }
 
   void dataRead() async {
-    var data =
-        await FirebaseFirestore.instance.collection("announcements").get();
+    var data = await FirebaseFirestore.instance.collection("announcements").get();
     debugPrint(" Data sayısı " + data.size.toString());
   }
 }
