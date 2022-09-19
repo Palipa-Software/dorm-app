@@ -25,7 +25,6 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    SharedPrefs.loginRead();
   }
 
   @override
