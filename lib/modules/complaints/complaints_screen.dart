@@ -21,7 +21,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
       appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Fereli Sinan Efendi Yurdu",
+            "Şikayet",
             style: GoogleFonts.inconsolata(
               fontSize: 19.sp,
               fontWeight: FontWeight.w700,
@@ -37,7 +37,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                AppStrings.fixingProblem,
+                "Şikayet Formu",
                 style: GoogleFonts.inconsolata(
                   fontSize: 19.sp,
                   fontWeight: FontWeight.w700,
@@ -77,8 +77,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
               ),
               CustomLoginPageInput(
                 isReadOnly: true,
-                controllerEmail:
-                    controller.initial(_controller.auth.currentUser!.email),
+                controllerEmail: controller.initial(_controller.auth.currentUser!.email),
                 isEmail: true,
                 hintText: "E-mail",
                 icon: Icons.email_outlined,
