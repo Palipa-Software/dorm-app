@@ -22,6 +22,10 @@ class HomePageController extends GetxController {
     Get.toNamed(Routes.COMPLAINT);
   }
 
+  void goRoomTechSupport() {
+    Get.toNamed(Routes.ROOMTECHNICALSUPPORT);
+  }
+
   void signOut() async {
     await auth.signOut();
     Get.to(LoadingAnimation());

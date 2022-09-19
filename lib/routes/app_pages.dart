@@ -29,6 +29,8 @@ import 'package:dorm_app/modules/login/login_binding.dart';
 import 'package:dorm_app/modules/login/login_screen.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_binding.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_screen.dart';
+import 'package:dorm_app/modules/roomTechnicalSupport/roomTechnicalSupport_binding.dart';
+import 'package:dorm_app/modules/roomTechnicalSupport/roomTechnicalSupport_screen.dart';
 import 'package:get/get.dart';
 
 import '../modules/splash/splash_binding.dart';
@@ -124,6 +126,11 @@ class AppPages {
       name: Routes.COMPLAINT,
       page: () => ComplaintsScreen(),
       binding: ComplaintBinding(),
+    ),
+    GetPage(
+      name: Routes.ROOMTECHNICALSUPPORT,
+      page: () => RoomTechnicalSupportScreen(),
+      binding: RoomTechnicalSupportBinding(),
     ),
   ];
 }
