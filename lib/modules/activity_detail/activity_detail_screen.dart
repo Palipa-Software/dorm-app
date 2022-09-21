@@ -39,6 +39,7 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: NetworkImage(snapshot.data!),
+
                             fit: BoxFit.fill),
                         color: AppColors.oceanNight,
                         borderRadius: BorderRadius.circular(20)),
@@ -50,6 +51,7 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
                                 color: AppColors.lakeView,
                               ))
                             : null,
+
                   ),
                   SizedBox(
                     height: 4.h,
@@ -80,12 +82,14 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
             );
           }
 
+
           return Padding(
             padding: EdgeInsets.only(top: 12.h, left: 48.w),
             child: CircularProgressIndicator(
               color: AppColors.white,
             ),
           );
+
         },
       ),
     );
