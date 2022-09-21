@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dorm_app/shared/utils/shared_preferences.dart';
-import 'package:dorm_app/shared/widgets/loading_animation.dart';
+import 'package:dorm_app/modules/loading/loading_animation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -33,13 +33,15 @@ class HomePageController extends GetxController {
 
   void signOut() async {
     await auth.signOut();
-    Get.to(LoadingAnimation());
-    Get.toNamed(Routes.LOGIN);
     SharedPrefs.loginSaver("", "");
+    Get.offAllNamed(Routes.LOADING);
+    await Future.delayed(Duration(milliseconds: 2000));
+    Get.offAllNamed(Routes.LOGIN);
   }
 
   void dataRead() async {
-    var data = await FirebaseFirestore.instance.collection("announcements").get();
+    var data =
+        await FirebaseFirestore.instance.collection("announcements").get();
     debugPrint(" Data sayısı " + data.size.toString());
   }
 }
