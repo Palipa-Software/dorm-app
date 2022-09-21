@@ -11,11 +11,11 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
 
   @override
   Widget build(BuildContext context) {
-    var data = Get.arguments;
+    var args = Get.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          data[0],
+          args[0],
           style: GoogleFonts.inconsolata(
             color: Colors.white,
             fontSize: 18.sp,
@@ -24,43 +24,59 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: EdgeInsets.only(top: 4.h, left: 5.w),
-        child: Column(
-          children: [
-            Container(
-              width: 90.w,
-              height: 19.h,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
-              child: Center(child: Text("Etkinlik Resmi")),
-            ),
-            SizedBox(
-              height: 4.h,
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              width: 90.w,
-              height: 60.h,
-              decoration: BoxDecoration(
-                  color: AppColors.lakeView,
-                  borderRadius: BorderRadius.circular(20)),
-              child: ListView(
+      body: FutureBuilder(
+        future: controller.downloadURL(args[2]),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData) {
+            return Padding(
+              padding: EdgeInsets.only(top: 4.h, left: 5.w),
+              child: Column(
                 children: [
-                  Center(
-                      child: Text(
-                    data[1],
-                    style: GoogleFonts.inconsolata(
-                        height: 0.3.h,
+                  Container(
+                    width: 90.w,
+                    height: 19.h,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(snapshot.data!),
+                            fit: BoxFit.cover),
                         color: Colors.white,
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w400),
-                  )),
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    width: 90.w,
+                    height: 60.h,
+                    decoration: BoxDecoration(
+                        color: AppColors.lakeView,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: ListView(
+                      children: [
+                        Center(
+                            child: Text(
+                          args[1],
+                          style: GoogleFonts.inconsolata(
+                              height: 0.3.h,
+                              color: Colors.white,
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w400),
+                        )),
+                      ],
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ],
-        ),
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.waiting ||
+              !snapshot.hasData) {
+            return CircularProgressIndicator();
+          }
+          return Container();
+        },
       ),
     );
   }

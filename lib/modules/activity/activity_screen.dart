@@ -54,7 +54,8 @@ class ActivityScreen extends GetView<ActivityController> {
                         onTap: () {
                           Get.to(ActivityDetailScreen(), arguments: [
                             snapshot.data?.docs[index]["title"],
-                            snapshot.data?.docs[index]["text"]
+                            snapshot.data?.docs[index]["text"],
+                            snapshot.data?.docs[index]["image_name"],
                           ]);
                         },
                         child: Padding(

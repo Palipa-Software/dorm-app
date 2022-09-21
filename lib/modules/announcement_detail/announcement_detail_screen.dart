@@ -1,6 +1,5 @@
 import 'package:dorm_app/modules/announcement_detail/announcement_detail_controller.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
-import 'package:firebase_image/firebase_image.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
