@@ -16,9 +16,6 @@ class ActivityScreen extends GetView<ActivityController> {
 
   @override
   Widget build(BuildContext context) {
-    String timeString = '2019-04-16 12:18:06.018950';
-    DateTime date = DateTime.parse(timeString);
-
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -50,6 +47,8 @@ class ActivityScreen extends GetView<ActivityController> {
                   child: ListView.builder(
                     itemCount: snapshot.data?.docs.length,
                     itemBuilder: (context, index) {
+                      Timestamp timestamp = snapshot.data?.docs[index]["date"];
+                      DateTime date = timestamp.toDate();
                       return Bounceable(
                         onTap: () {
                           Get.to(ActivityDetailScreen(), arguments: [
