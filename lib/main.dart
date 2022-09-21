@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:overlay_support/overlay_support.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'firebase_options.dart';
@@ -23,16 +24,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        enableLog: false,
-        title: AppStrings.appTitle,
-        defaultTransition: Transition.downToUp,
-        getPages: AppPages.routes,
-        initialRoute: Routes.ANNOUNCEMENTS,
-        smartManagement: SmartManagement.keepFactory,
-        theme: ThemeConfig.lightTheme,
-        builder: EasyLoading.init(),
+      return OverlaySupport.global(
+        child: GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          enableLog: false,
+          title: AppStrings.appTitle,
+          defaultTransition: Transition.downToUp,
+          getPages: AppPages.routes,
+          initialRoute: Routes.SPLASH,
+          smartManagement: SmartManagement.keepFactory,
+          theme: ThemeConfig.lightTheme,
+          builder: EasyLoading.init(),
+        ),
       );
     });
   }

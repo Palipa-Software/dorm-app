@@ -9,7 +9,7 @@ import 'package:dorm_app/shared/widgets/circularProgress.dart';
 import 'package:dorm_app/shared/widgets/custom_login_page_button.dart';
 import 'package:dorm_app/shared/widgets/custom_login_page_header_container.dart';
 import 'package:dorm_app/shared/widgets/custom_login_page_input.dart';
-import 'package:dorm_app/shared/widgets/loading_animation.dart';
+import 'package:dorm_app/modules/loading/loading_animation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';

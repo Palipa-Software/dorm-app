@@ -20,6 +20,8 @@ import 'package:dorm_app/modules/food_list/food_list_items_pages/tomorrow_dinner
 
 import 'package:dorm_app/modules/food_list/food_list_screen.dart';
 import 'package:dorm_app/modules/homepage/homepage_screen.dart';
+import 'package:dorm_app/modules/loading/loading_animation.dart';
+import 'package:dorm_app/modules/loading/loading_animation_binding.dart';
 import 'package:dorm_app/modules/login/login_binding.dart';
 import 'package:dorm_app/modules/login/login_screen.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_binding.dart';
@@ -41,6 +43,11 @@ class AppPages {
       name: Routes.SPLASH,
       page: () => SplashScreen(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: Routes.LOADING,
+      page: () => LoadingAnimation(),
+      binding: LoadingAnimationBinding(),
     ),
     GetPage(
       name: Routes.LOGIN,

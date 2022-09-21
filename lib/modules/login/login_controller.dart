@@ -4,7 +4,7 @@ import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:dorm_app/shared/services/auth_service.dart';
 import 'package:dorm_app/shared/utils/shared_preferences.dart';
 import 'package:dorm_app/shared/widgets/circularProgress.dart';
-import 'package:dorm_app/shared/widgets/loading_animation.dart';
+import 'package:dorm_app/modules/loading/loading_animation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -48,15 +48,15 @@ class LoginController extends GetxController {
   }
 
   Future goHome() async {
-    Get.to(LoadingAnimation());
+    Get.offAllNamed(Routes.LOADING);
     await Future.delayed(Duration(milliseconds: 2500));
     Get.offAllNamed(Routes.HOMEPAGE);
   }
 
   Future loading() async {
-    Get.to(LoadingAnimation());
+    Get.offAllNamed(Routes.LOADING);
     await Future.delayed(Duration(milliseconds: 1500));
-    Get.back();
+    Get.offAllNamed(Routes.LOGIN);
   }
 
   void goLoginHelp() {
