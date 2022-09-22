@@ -1,7 +1,7 @@
 class AppStrings {
   AppStrings._();
 
-  static const appTitle = "Fereli Sinan Efendi Erkek Öğrenci Yurdu";
+  static const appTitle = "Fereli Sinan Efendi Akıllı Yurt";
   static const avatarUrl =
       "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000";
   static const username = "Kullanıcı Adı";
