@@ -40,19 +40,16 @@ class CustomLoginPageInput extends GetView<LoginController> {
             keyboardType: keyboard ?? TextInputType.emailAddress,
             textInputAction: action ?? TextInputAction.next,
             maxLines: isMessage,
-            style: GoogleFonts.inconsolata(
-                color: AppColors.oceanNight, fontSize: 17.sp),
+            style: GoogleFonts.inconsolata(color: AppColors.lakeView, fontSize: 17.sp),
             decoration: InputDecoration(
               contentPadding: EdgeInsets.all(18.sp),
               prefixIcon: Column(
-                  mainAxisAlignment: isMessage == 1
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.start,
+                  mainAxisAlignment: isMessage == 1 ? MainAxisAlignment.center : MainAxisAlignment.start,
                   children: [
                     Icon(
                       icon,
                       size: 6.w,
-                      color: AppColors.oceanNight,
+                      color: AppColors.lakeView,
                     ),
                   ]),
               hintText: hintText,
@@ -62,9 +59,7 @@ class CustomLoginPageInput extends GetView<LoginController> {
               ),
               fillColor: AppColors.white,
               filled: true,
-              border: UnderlineInputBorder(
-                  borderRadius: BorderRadius.circular(18.sp),
-                  borderSide: BorderSide.none),
+              border: UnderlineInputBorder(borderRadius: BorderRadius.circular(18.sp), borderSide: BorderSide.none),
             ),
           )
         : Obx(
@@ -76,35 +71,29 @@ class CustomLoginPageInput extends GetView<LoginController> {
                 obscuringCharacter: "*",
                 keyboardType: TextInputType.visiblePassword,
                 textInputAction: TextInputAction.done,
-                style: GoogleFonts.inconsolata(
-                    color: AppColors.oceanNight, fontSize: 17.sp),
+                style: GoogleFonts.inconsolata(color: AppColors.lakeView, fontSize: 17.sp),
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(18.sp),
                   prefixIcon: Icon(
                     icon,
                     size: 6.w,
-                    color: AppColors.oceanNight,
+                    color: AppColors.lakeView,
                   ),
                   suffixIcon: Bounceable(
                     onTap: () {
                       _controller.changeVisible();
                     },
                     child: Icon(
-                      _controller.isVisible.value
-                          ? Icons.visibility_off_outlined
-                          : Icons.visibility_outlined,
-                      color: AppColors.oceanNight,
+                      _controller.isVisible.value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                      color: AppColors.lakeView,
                       size: 6.w,
                     ),
                   ),
                   hintText: hintText,
-                  hintStyle: GoogleFonts.inconsolata(
-                      color: AppColors.oceanNight, fontSize: 16.sp),
+                  hintStyle: GoogleFonts.inconsolata(color: AppColors.oceanNight, fontSize: 16.sp),
                   fillColor: AppColors.white,
                   filled: true,
-                  border: UnderlineInputBorder(
-                      borderRadius: BorderRadius.circular(18.sp),
-                      borderSide: BorderSide.none),
+                  border: UnderlineInputBorder(borderRadius: BorderRadius.circular(18.sp), borderSide: BorderSide.none),
                 ),
               );
             },

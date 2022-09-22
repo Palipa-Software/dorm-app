@@ -31,6 +31,10 @@ class HomePageController extends GetxController {
     Get.toNamed(Routes.ACTIVITY);
   }
 
+  void goFollowUs() {
+    Get.toNamed(Routes.FOLLOWUS);
+  }
+
   void signOut() async {
     await auth.signOut();
     SharedPrefs.loginSaver("", "");
@@ -40,8 +44,7 @@ class HomePageController extends GetxController {
   }
 
   void dataRead() async {
-    var data =
-        await FirebaseFirestore.instance.collection("announcements").get();
+    var data = await FirebaseFirestore.instance.collection("announcements").get();
     debugPrint(" Data sayısı " + data.size.toString());
   }
 }

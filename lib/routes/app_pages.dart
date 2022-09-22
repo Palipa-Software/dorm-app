@@ -8,6 +8,8 @@ import 'package:dorm_app/modules/announcements/announcements_binding.dart';
 import 'package:dorm_app/modules/announcements/announcements_screen.dart';
 import 'package:dorm_app/modules/complaints/complaints_binding.dart';
 import 'package:dorm_app/modules/complaints/complaints_screen.dart';
+import 'package:dorm_app/modules/follow_us/follow_us_binding.dart';
+import 'package:dorm_app/modules/follow_us/follow_us_screen.dart';
 import 'package:dorm_app/modules/food_list/food_list_binding.dart';
 import 'package:dorm_app/modules/food_list/food_list_items_pages/today_breakfast/today_breakfast_binding.dart';
 import 'package:dorm_app/modules/food_list/food_list_items_pages/today_breakfast/today_breakfast_screen.dart';
@@ -118,6 +120,11 @@ class AppPages {
       name: Routes.ROOMTECHNICALSUPPORT,
       page: () => RoomTechnicalSupportScreen(),
       binding: RoomTechnicalSupportBinding(),
+    ),
+    GetPage(
+      name: Routes.FOLLOWUS,
+      page: () => FollowUsScreen(),
+      binding: FollowUsBinding(),
     ),
   ];
 }

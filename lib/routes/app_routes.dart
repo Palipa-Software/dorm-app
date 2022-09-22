@@ -23,4 +23,5 @@ abstract class Routes {
   static const ACTIVITYDETAIL = '/activity_detail';
   static const COMPLAINT = '/complaints';
   static const ROOMTECHNICALSUPPORT = '/roomTechnicalSupport';
+  static const FOLLOWUS = '/followUs';
 }
