@@ -19,12 +19,8 @@ class LoginHelpController extends GetxController {
       required String roomInfo,
       required String phoneNumber,
       required String problemText}) async {
-    if (nameSurname.isNotEmpty &&
-        roomInfo.isNotEmpty &&
-        problemText.isNotEmpty) {
-      final docComplaint = FirebaseFirestore.instance
-          .collection("loginComplaint")
-          .doc(DateTime.now().toString());
+    if (nameSurname.isNotEmpty && roomInfo.isNotEmpty && problemText.isNotEmpty) {
+      final docComplaint = FirebaseFirestore.instance.collection("loginComplaint").doc(DateTime.now().toString());
 
       final json = {
         "nameSurname": nameSurname,
@@ -68,14 +64,9 @@ class LoginHelpController extends GetxController {
         ),
         messageText: Text(
           "Boş Bırakılan Yerleri Doldurunuz!!!",
-          style:
-              GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+          style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
         ),
       );
     }
-
-    // Reference to document
-
-    // Create document and write data to Firebase
   }
 }

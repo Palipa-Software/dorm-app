@@ -15,9 +15,3 @@ class SplashScreen extends StatelessWidget {
     );
   }
 }
-/*
-startTimer() async {
-  var duration = Duration(seconds: 4);
-  return Timer(duration, Get.toNamed(Routes.LOGIN))
-}
-*/

@@ -9,8 +9,7 @@ import '../../shared/constants/strings.dart';
 import '../../shared/widgets/custom_login_page_button.dart';
 import '../../shared/widgets/custom_login_page_input.dart';
 
-class RoomTechnicalSupportScreen
-    extends GetView<RoomTechnicalSupportController> {
+class RoomTechnicalSupportScreen extends GetView<RoomTechnicalSupportController> {
   final LoginController _controller = LoginController();
   RoomTechnicalSupportScreen({super.key});
 
@@ -20,7 +19,7 @@ class RoomTechnicalSupportScreen
       appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Oda Teknik Destek",
+            AppStrings.roomTechSupportTitle,
             style: GoogleFonts.inconsolata(
               fontSize: 19.sp,
               fontWeight: FontWeight.w700,
@@ -36,7 +35,7 @@ class RoomTechnicalSupportScreen
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Oda Teknik Destek Şikayet Formu",
+                AppStrings.roomTechSupportFormTitle,
                 style: GoogleFonts.inconsolata(
                   fontSize: 19.sp,
                   fontWeight: FontWeight.w700,
@@ -57,10 +56,9 @@ class RoomTechnicalSupportScreen
               ),
               CustomLoginPageInput(
                 isReadOnly: true,
-                controllerEmail:
-                    controller.initial(_controller.auth.currentUser!.email),
+                controllerEmail: controller.initial(_controller.auth.currentUser!.email),
                 isEmail: true,
-                hintText: "E-mail",
+                hintText: AppStrings.email,
                 icon: Icons.email_outlined,
                 keyboard: TextInputType.emailAddress,
               ),
@@ -70,7 +68,7 @@ class RoomTechnicalSupportScreen
               CustomLoginPageInput(
                 controllerEmail: controller.roomInfo,
                 isEmail: true,
-                hintText: "Oda/Yatak Bilgisi",
+                hintText: AppStrings.roomInfo,
                 icon: Icons.bed_outlined,
                 keyboard: TextInputType.visiblePassword,
               ),
@@ -80,7 +78,7 @@ class RoomTechnicalSupportScreen
               CustomLoginPageInput(
                 controllerEmail: controller.subjectOfComplaint,
                 isEmail: true,
-                hintText: "Şikayet Konusu",
+                hintText: AppStrings.subjectOfComplaints,
                 icon: Icons.warning_amber_outlined,
                 keyboard: TextInputType.visiblePassword,
               ),
@@ -90,7 +88,7 @@ class RoomTechnicalSupportScreen
               CustomLoginPageInput(
                 controllerEmail: controller.complaintText,
                 isEmail: true,
-                hintText: "Şikayetinizi belirtiniz",
+                hintText: AppStrings.problemText,
                 icon: Icons.message_outlined,
                 action: TextInputAction.done,
                 isMessage: 3,

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dorm_app/modules/food_list/food_list_items_pages/today_dinner/today_dinner_controller.dart';
+import 'package:dorm_app/shared/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +19,7 @@ class TodayDinnerScreen extends GetView<TodayDinnerController> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Bugün Akşam Yemeği Listesi",
+            AppStrings.todayDinnerTitle,
             style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
           ),
         ),
@@ -33,8 +34,6 @@ class TodayDinnerScreen extends GetView<TodayDinnerController> {
 
             //Data is output to the user
             if (snapshot.hasData) {
-              // Map<String, dynamic> data =
-              //     snapshot.data!.data() as Map<String, dynamic>;
               return Padding(
                 padding: AppPadding.projectPadding,
                 child: Column(

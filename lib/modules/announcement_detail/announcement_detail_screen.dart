@@ -1,6 +1,5 @@
 import 'package:dorm_app/modules/announcement_detail/announcement_detail_controller.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,8 +7,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AnnouncementDetailScreen extends GetView<AnnouncementDetailController> {
   AnnouncementDetailScreen({super.key});
-  AnnouncementDetailController controller =
-      Get.put(AnnouncementDetailController());
+  AnnouncementDetailController controller = Get.put(AnnouncementDetailController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,7 @@ class AnnouncementDetailScreen extends GetView<AnnouncementDetailController> {
         title: Text(
           args[0],
           style: GoogleFonts.inconsolata(
-            color: Colors.white,
+            color: AppColors.white,
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
           ),
@@ -29,8 +27,7 @@ class AnnouncementDetailScreen extends GetView<AnnouncementDetailController> {
       body: FutureBuilder(
         future: controller.downloadURL(args[2]),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.connectionState == ConnectionState.done &&
-              snapshot.hasData) {
+          if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
             return Padding(
               padding: EdgeInsets.only(top: 4.h, left: 5.w),
               child: Column(
@@ -39,40 +36,31 @@ class AnnouncementDetailScreen extends GetView<AnnouncementDetailController> {
                     width: 90.w,
                     height: 19.h,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(snapshot.data!),
-                            fit: BoxFit.fill),
+                        image: DecorationImage(image: NetworkImage(snapshot.data!), fit: BoxFit.fill),
                         color: AppColors.oceanNight,
-                        borderRadius: BorderRadius.circular(20)),
-                    child:
-                        snapshot.connectionState == ConnectionState.waiting ||
-                                !snapshot.hasData
-                            ? Center(
-                                child: CircularProgressIndicator(
-                                color: AppColors.lakeView,
-                              ))
-                            : null,
+                        borderRadius: BorderRadius.circular(16.sp)),
+                    child: snapshot.connectionState == ConnectionState.waiting || !snapshot.hasData
+                        ? Center(
+                            child: CircularProgressIndicator(
+                            color: AppColors.lakeView,
+                          ))
+                        : null,
                   ),
                   SizedBox(
                     height: 4.h,
                   ),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.symmetric(horizontal: 4.w),
                     width: 90.w,
                     height: 60.h,
-                    decoration: BoxDecoration(
-                        color: AppColors.lakeView,
-                        borderRadius: BorderRadius.circular(20)),
+                    decoration: BoxDecoration(color: AppColors.lakeView, borderRadius: BorderRadius.circular(16.sp)),
                     child: ListView(
                       children: [
                         Center(
                             child: Text(
                           args[1],
                           style: GoogleFonts.inconsolata(
-                              height: 0.3.h,
-                              color: Colors.white,
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w400),
+                              height: 0.2.h, color: AppColors.white, fontSize: 18.sp, fontWeight: FontWeight.w400),
                         )),
                       ],
                     ),

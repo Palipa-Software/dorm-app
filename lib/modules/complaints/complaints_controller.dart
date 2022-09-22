@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dorm_app/modules/food_list/food_list_screen.dart';
-import 'package:dorm_app/modules/login/login_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +8,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../shared/constants/colors.dart';
 
 class ComplaintsController extends GetxController {
-  final LoginController _controller = LoginController();
   FirebaseAuth auth = FirebaseAuth.instance;
 
   initial(val) {
@@ -19,7 +16,6 @@ class ComplaintsController extends GetxController {
 
   final TextEditingController complaintText = TextEditingController();
   final TextEditingController complaintsUnit = TextEditingController();
-  // final TextEditingController email = TextEditingController();
   final TextEditingController nameSurname = TextEditingController();
   final TextEditingController subjectOfComplaint = TextEditingController();
 
@@ -33,9 +29,7 @@ class ComplaintsController extends GetxController {
       required String email,
       required String complaintText}) async {
     if (subjectOfComplaint.isNotEmpty && complaintText.isNotEmpty) {
-      final docComplaint = FirebaseFirestore.instance
-          .collection("homePageComplaint")
-          .doc(DateTime.now().toString());
+      final docComplaint = FirebaseFirestore.instance.collection("homePageComplaint").doc(DateTime.now().toString());
 
       final json = {
         "nameSurname": nameSurname,
@@ -44,7 +38,6 @@ class ComplaintsController extends GetxController {
         "complaintText": complaintText
       };
       await docComplaint.set(json);
-      debugPrint("else düşmedim");
       Get.snackbar(
         "Başarılı",
         "başarılı mesaj",
@@ -65,7 +58,6 @@ class ComplaintsController extends GetxController {
         ),
       );
     } else {
-      debugPrint("else düştüm");
       Get.snackbar(
         "Success",
         "Success message",
@@ -79,14 +71,9 @@ class ComplaintsController extends GetxController {
         ),
         messageText: Text(
           "Boş Bırakılan Yerleri Doldurunuz!!!",
-          style:
-              GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+          style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
         ),
       );
     }
-
-    // Reference to document
-
-    // Create document and write data to Firebase
   }
 }

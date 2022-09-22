@@ -10,18 +10,16 @@ import 'CustomSvgAsset.dart';
 class CustomHomePageMenuButton extends StatelessWidget {
   String path;
   String title;
+  bool isDisabled;
   Function() func;
-  CustomHomePageMenuButton({
-    Key? key,
-    required this.path,
-    required this.title,
-    required this.func,
-  }) : super(key: key);
+  CustomHomePageMenuButton(
+      {Key? key, required this.path, required this.title, required this.func, this.isDisabled = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Bounceable(
-      onTap: func,
+      onTap: isDisabled ? null : func,
       child: Material(
         elevation: 10,
         borderRadius: BorderRadius.circular(16.sp),
@@ -37,7 +35,7 @@ class CustomHomePageMenuButton extends StatelessWidget {
             ],
           ),
           decoration: BoxDecoration(
-            color: AppColors.lakeView,
+            color: isDisabled ? AppColors.elementalGrey : AppColors.lakeView,
             borderRadius: BorderRadius.circular(16.sp),
           ),
         ),

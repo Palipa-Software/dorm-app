@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:dorm_app/shared/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ class FoodListScreen extends GetView<FoodListController> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Yemek Listesi",
+            AppStrings.foodListTitle,
             style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
           ),
         ),
@@ -26,11 +27,11 @@ class FoodListScreen extends GetView<FoodListController> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               FoodListContainer(
-                  title: "Bugün Yemek Listesi",
+                  title: AppStrings.todayFoodList,
                   breakfastFunc: controller.goTodayBreakfast,
                   dinnerFunc: controller.goTodayDinner),
               FoodListContainer(
-                  title: "Yarın Yemek Listesi",
+                  title: AppStrings.tommorowFoodList,
                   breakfastFunc: controller.goTomorrowBreakfast,
                   dinnerFunc: controller.goTomorrowDinner),
             ],
@@ -68,8 +69,8 @@ class FoodListContainer extends StatelessWidget {
               title,
               style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 18.sp, fontWeight: FontWeight.w600),
             ),
-            CustomFoodListButton(title: "Kahvaltı", func: breakfastFunc),
-            CustomFoodListButton(title: "Akşam Yemeği", func: dinnerFunc),
+            CustomFoodListButton(title: AppStrings.breakfast, func: breakfastFunc),
+            CustomFoodListButton(title: AppStrings.mainCourse, func: dinnerFunc),
           ],
         ),
       ),
@@ -109,21 +110,3 @@ class CustomFoodListButton extends StatelessWidget {
     );
   }
 }
-/*
-Padding(
-        padding: AppPadding.projectPadding,
-        child: Container(
-          width: 100.w,
-          height: 85.h,
-          child: ListView.separated(
-            itemCount: foodButton.length,
-            itemBuilder: (context, index) {
-              return foodButton[index];
-            },
-            separatorBuilder: (context, index) => SizedBox(
-              height: 2.h,
-            ),
-          ),
-        ),
-      ),
-      */

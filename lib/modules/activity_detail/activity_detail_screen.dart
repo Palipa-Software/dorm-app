@@ -17,7 +17,7 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
         title: Text(
           args[0],
           style: GoogleFonts.inconsolata(
-            color: Colors.white,
+            color: AppColors.white,
             fontSize: 18.sp,
             fontWeight: FontWeight.w600,
           ),
@@ -27,8 +27,7 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
       body: FutureBuilder(
         future: controller.downloadURL(args[2]),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.connectionState == ConnectionState.done &&
-              snapshot.hasData) {
+          if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
             return Padding(
               padding: EdgeInsets.only(top: 4.h, left: 5.w),
               child: Column(
@@ -37,42 +36,31 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
                     width: 90.w,
                     height: 19.h,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(snapshot.data!),
-
-                            fit: BoxFit.fill),
+                        image: DecorationImage(image: NetworkImage(snapshot.data!), fit: BoxFit.fill),
                         color: AppColors.oceanNight,
-                        borderRadius: BorderRadius.circular(20)),
-                    child:
-                        snapshot.connectionState == ConnectionState.waiting ||
-                                !snapshot.hasData
-                            ? Center(
-                                child: CircularProgressIndicator(
-                                color: AppColors.lakeView,
-                              ))
-                            : null,
-
+                        borderRadius: BorderRadius.circular(16.sp)),
+                    child: snapshot.connectionState == ConnectionState.waiting || !snapshot.hasData
+                        ? Center(
+                            child: CircularProgressIndicator(
+                            color: AppColors.lakeView,
+                          ))
+                        : null,
                   ),
                   SizedBox(
                     height: 4.h,
                   ),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.symmetric(horizontal: 4.w),
                     width: 90.w,
                     height: 60.h,
-                    decoration: BoxDecoration(
-                        color: AppColors.lakeView,
-                        borderRadius: BorderRadius.circular(20)),
+                    decoration: BoxDecoration(color: AppColors.lakeView, borderRadius: BorderRadius.circular(16.sp)),
                     child: ListView(
                       children: [
                         Center(
                             child: Text(
                           args[1],
                           style: GoogleFonts.inconsolata(
-                              height: 0.3.h,
-                              color: Colors.white,
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w400),
+                              height: 0.2.h, color: AppColors.white, fontSize: 18.sp, fontWeight: FontWeight.w400),
                         )),
                       ],
                     ),
@@ -82,14 +70,12 @@ class ActivityDetailScreen extends GetView<ActivityDetailController> {
             );
           }
 
-
           return Padding(
             padding: EdgeInsets.only(top: 12.h, left: 48.w),
             child: CircularProgressIndicator(
               color: AppColors.white,
             ),
           );
-
         },
       ),
     );

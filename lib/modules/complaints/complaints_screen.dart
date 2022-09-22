@@ -20,7 +20,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
       appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Şikayet",
+            AppStrings.complaintsTitle,
             style: GoogleFonts.inconsolata(
               fontSize: 19.sp,
               fontWeight: FontWeight.w700,
@@ -36,7 +36,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Şikayet Formu",
+                AppStrings.complaintsFormTitle,
                 style: GoogleFonts.inconsolata(
                   fontSize: 19.sp,
                   fontWeight: FontWeight.w700,
@@ -59,7 +59,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
                 isReadOnly: true,
                 controllerEmail: controller.initial(_controller.auth.currentUser!.email),
                 isEmail: true,
-                hintText: "E-mail",
+                hintText: AppStrings.email,
                 icon: Icons.email_outlined,
                 keyboard: TextInputType.emailAddress,
               ),
@@ -69,7 +69,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
               CustomLoginPageInput(
                 controllerEmail: controller.subjectOfComplaint,
                 isEmail: true,
-                hintText: "Şikayet Konusu",
+                hintText: AppStrings.subjectOfComplaints,
                 icon: Icons.warning_amber_outlined,
                 keyboard: TextInputType.visiblePassword,
               ),
@@ -79,7 +79,7 @@ class ComplaintsScreen extends GetView<ComplaintsController> {
               CustomLoginPageInput(
                 controllerEmail: controller.complaintText,
                 isEmail: true,
-                hintText: "Şikayetinizi belirtiniz",
+                hintText: AppStrings.problemText,
                 icon: Icons.message_outlined,
                 action: TextInputAction.done,
                 isMessage: 3,

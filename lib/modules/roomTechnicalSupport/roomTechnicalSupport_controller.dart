@@ -12,7 +12,6 @@ class RoomTechnicalSupportController extends GetxController {
 
   final TextEditingController nameSurname = TextEditingController();
   final TextEditingController roomInfo = TextEditingController();
-  // final TextEditingController phoneNumber = TextEditingController();
   final TextEditingController subjectOfComplaint = TextEditingController();
   final TextEditingController complaintText = TextEditingController();
 
@@ -23,13 +22,8 @@ class RoomTechnicalSupportController extends GetxController {
     required String subjectOfComplaint,
     required String complaintText,
   }) async {
-    if (nameSurname.isNotEmpty &&
-        roomInfo.isNotEmpty &&
-        subjectOfComplaint.isNotEmpty &&
-        complaintText.isNotEmpty) {
-      final docComplaint = FirebaseFirestore.instance
-          .collection("roomTechnicalSupport")
-          .doc(DateTime.now().toString());
+    if (nameSurname.isNotEmpty && roomInfo.isNotEmpty && subjectOfComplaint.isNotEmpty && complaintText.isNotEmpty) {
+      final docComplaint = FirebaseFirestore.instance.collection("roomTechnicalSupport").doc(DateTime.now().toString());
 
       final json = {
         "nameSurname": nameSurname,
@@ -74,14 +68,9 @@ class RoomTechnicalSupportController extends GetxController {
         ),
         messageText: Text(
           "Boş Bırakılan Yerleri Doldurunuz!!!",
-          style:
-              GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+          style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
         ),
       );
     }
-
-    // Reference to document
-
-    // Create document and write data to Firebase
   }
 }

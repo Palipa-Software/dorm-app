@@ -12,12 +12,6 @@ abstract class Routes {
   static const TODAYDINNER = '/todayDinner';
   static const TOMORROWBREAKFAST = '/tomorrowBreakfast';
   static const TOMORROWDINNER = '/tomorrowDinner';
-  static const DESSERTS = '/desserts';
-  static const DRINKS = '/drinks';
-  static const MAINCOURSE = '/mainCourse';
-  static const RICEANDPASTA = '/riceAndPasta';
-  static const SALADANDPICKLE = '/saladAndPickle';
-  static const SOUPS = '/soups';
   static const ANNOUNCEMENTDETAIL = '/announcement_detail';
   static const ACTIVITY = '/activity';
   static const ACTIVITYDETAIL = '/activity_detail';

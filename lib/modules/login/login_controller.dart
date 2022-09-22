@@ -1,10 +1,5 @@
-import 'package:dorm_app/modules/homepage/homepage_screen.dart';
-import 'package:dorm_app/modules/login/login_screen.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
-import 'package:dorm_app/shared/services/auth_service.dart';
 import 'package:dorm_app/shared/utils/shared_preferences.dart';
-import 'package:dorm_app/shared/widgets/circularProgress.dart';
-import 'package:dorm_app/modules/loading/loading_animation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -63,13 +58,6 @@ class LoginController extends GetxController {
     Get.toNamed(Routes.LOGINHELP);
   }
 
-  void create() async {
-    try {
-      var _userCredential = await auth.createUserWithEmailAndPassword(
-          email: "harun@gmail.com", password: "harun33");
-    } catch (e) {}
-  }
-
   Future login(String email, String password) async {
     try {
       await auth.signInWithEmailAndPassword(
@@ -79,8 +67,7 @@ class LoginController extends GetxController {
       SharedPrefs.loginSaver(email, password); //               TEKRAR BAKILACAK
       goHome();
     } catch (e) {
-      if (emailController.text.isNotEmpty &&
-          passwordController.text.isNotEmpty) {
+      if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
         await loading();
         Get.snackbar(
           "Giriş Hata",
@@ -89,21 +76,17 @@ class LoginController extends GetxController {
           snackPosition: SnackPosition.TOP,
           titleText: Text(
             "Giriş Hatası",
-            style: GoogleFonts.inconsolata(
-                color: AppColors.white, fontSize: 20.sp),
+            style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 20.sp),
           ),
-          messageText:
-              (emailController.text.isEmpty || passwordController.text.isEmpty)
-                  ? Text(
-                      "E-mail ya da şifre boş bırakılamaz!",
-                      style: GoogleFonts.inconsolata(
-                          color: AppColors.white, fontSize: 17.sp),
-                    )
-                  : Text(
-                      "Girdiğiniz e-mail ya da şifre hatalı!",
-                      style: GoogleFonts.inconsolata(
-                          color: AppColors.white, fontSize: 17.sp),
-                    ),
+          messageText: (emailController.text.isEmpty || passwordController.text.isEmpty)
+              ? Text(
+                  "E-mail ya da şifre boş bırakılamaz!",
+                  style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+                )
+              : Text(
+                  "Girdiğiniz e-mail ya da şifre hatalı!",
+                  style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+                ),
         );
       } else {
         Get.snackbar(
@@ -113,21 +96,17 @@ class LoginController extends GetxController {
           snackPosition: SnackPosition.TOP,
           titleText: Text(
             "Giriş Hatası",
-            style: GoogleFonts.inconsolata(
-                color: AppColors.white, fontSize: 20.sp),
+            style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 20.sp),
           ),
-          messageText:
-              (emailController.text.isEmpty || passwordController.text.isEmpty)
-                  ? Text(
-                      "E-mail ya da şifre boş bırakılamaz!",
-                      style: GoogleFonts.inconsolata(
-                          color: AppColors.white, fontSize: 17.sp),
-                    )
-                  : Text(
-                      "Girdiğiniz e-mail ya da şifre hatalı!",
-                      style: GoogleFonts.inconsolata(
-                          color: AppColors.white, fontSize: 17.sp),
-                    ),
+          messageText: (emailController.text.isEmpty || passwordController.text.isEmpty)
+              ? Text(
+                  "E-mail ya da şifre boş bırakılamaz!",
+                  style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+                )
+              : Text(
+                  "Girdiğiniz e-mail ya da şifre hatalı!",
+                  style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+                ),
         );
       }
     }

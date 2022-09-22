@@ -68,7 +68,7 @@ class HomePageDrawer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/img_avatar.jpg"),
+                  backgroundImage: AssetImage(AppStrings.profileIconPath),
                 ),
                 Text(
                   _controller.auth.currentUser!.email.toString(),
@@ -84,11 +84,11 @@ class HomePageDrawer extends StatelessWidget {
             },
             child: ListTile(
               title: Text(
-                "Çıkış Yap",
+                AppStrings.exitText,
                 style: GoogleFonts.inconsolata(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
               trailing: SvgPicture.asset(
-                "assets/svgs/ic_logout.svg",
+                AppStrings.exitIconPath,
                 width: 3.w,
                 height: 3.h,
                 color: AppColors.white,
@@ -180,12 +180,22 @@ class GridMenu extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
-        CustomHomePageMenuButton(path: "ic_inbox_in", title: "Duyurlar", func: controller.goAnnouncement),
-        CustomHomePageMenuButton(path: "ic_basket_ok", title: "Yemek Listesi", func: controller.goFoodList),
-        CustomHomePageMenuButton(path: "ic_warning", title: "Şikayet", func: controller.goComplaint),
-        CustomHomePageMenuButton(path: "ic_bell", title: "Oda Teknik Destek ", func: controller.goRoomTechSupport),
-        CustomHomePageMenuButton(path: "ic_calendar", title: "Etkinlikler", func: controller.goActivity),
-        CustomHomePageMenuButton(path: "ic_star", title: "Takip Et", func: controller.goFollowUs),
+        CustomHomePageMenuButton(
+            path: AppStrings.announcementIconPath,
+            title: AppStrings.announcementsTitle,
+            func: controller.goAnnouncement),
+        CustomHomePageMenuButton(
+            path: AppStrings.foodListIconPath, title: AppStrings.foodListTitle, func: controller.goFoodList),
+        CustomHomePageMenuButton(
+            path: AppStrings.complaintIconPath, title: AppStrings.complaintsTitle, func: controller.goComplaint),
+        CustomHomePageMenuButton(
+            path: AppStrings.roomTechSupportIconPath,
+            title: AppStrings.roomTechSupportTitle,
+            func: controller.goRoomTechSupport),
+        CustomHomePageMenuButton(
+            path: AppStrings.activityIconPath, title: AppStrings.activityTitle, func: controller.goActivity),
+        CustomHomePageMenuButton(
+            path: AppStrings.followUsIconPath, title: AppStrings.followUsTitle, func: controller.goFollowUs),
       ],
     );
   }

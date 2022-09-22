@@ -9,6 +9,7 @@ class AppColors {
   static Color lakeView = Color(0xFF2B4865);
   static Color seaGoddess = Color(0xFF256D85);
   static Color beachGlass = Color(0xFF8FE3CF);
+  static Color elementalGrey = Color(0xFFA0A0A0);
 
   //App Dark Light Color
   static Color lightScaffoldBackgroundColor = Color(0xFFFDEBEC);

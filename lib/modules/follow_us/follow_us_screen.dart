@@ -1,4 +1,5 @@
 import 'package:dorm_app/shared/constants/padding.dart';
+import 'package:dorm_app/shared/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +16,7 @@ class FollowUsScreen extends GetView<FollowUsController> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Takip Et",
+          AppStrings.followUsTitle,
           style: GoogleFonts.inconsolata(fontSize: 17.sp, fontWeight: FontWeight.w700),
         ),
       ),
@@ -30,11 +31,27 @@ class FollowUsScreen extends GetView<FollowUsController> {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           children: [
-            CustomHomePageMenuButton(path: "ic_facebook", title: "Facebook", func: () {}),
-            CustomHomePageMenuButton(path: "ic_instagram", title: "Instagram", func: () {}),
-            CustomHomePageMenuButton(path: "ic_twitter", title: "Twitter", func: controller.goTwitter),
-            CustomHomePageMenuButton(path: "ic_youtube", title: "Youtube", func: () {}),
-            CustomHomePageMenuButton(path: "mail", title: "Mail", func: () {}),
+            CustomHomePageMenuButton(
+                isDisabled: true,
+                path: AppStrings.followUsFacebookIconPath,
+                title: AppStrings.followUsFacebook,
+                func: () {}),
+            CustomHomePageMenuButton(
+                isDisabled: true,
+                path: AppStrings.followUsInstagramIconPath,
+                title: AppStrings.followUsInstagram,
+                func: () {}),
+            CustomHomePageMenuButton(
+                path: AppStrings.followUsTwitterIconPath,
+                title: AppStrings.followUsTwitter,
+                func: controller.goTwitter),
+            CustomHomePageMenuButton(
+                isDisabled: true,
+                path: AppStrings.followUsYoutubeIconPath,
+                title: AppStrings.followUsYoutube,
+                func: () {}),
+            CustomHomePageMenuButton(
+                isDisabled: true, path: AppStrings.followUsMailIconPath, title: AppStrings.followUsMail, func: () {}),
           ],
         ),
       ),
