@@ -11,15 +11,34 @@ import 'package:dorm_app/modules/complaints/complaints_screen.dart';
 import 'package:dorm_app/modules/follow_us/follow_us_binding.dart';
 import 'package:dorm_app/modules/follow_us/follow_us_screen.dart';
 import 'package:dorm_app/modules/food_list/food_list_binding.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/today_breakfast/today_breakfast_binding.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/today_breakfast/today_breakfast_screen.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/today_dinner/today_dinner_binding.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/today_dinner/today_dinner_screen.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/tomorrow_breakfast/tomorrow_breakfast_binding.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/tomorrow_breakfast/tomorrow_breakfast_screen.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/tomorrow_dinner/tomorrow_dinner_binding.dart';
-import 'package:dorm_app/modules/food_list/food_list_items_pages/tomorrow_dinner/tomorrow_dinner_screen.dart';
-
+import 'package:dorm_app/modules/food_list/food_list_items_pages/friday_breakfast/friday_breakfast_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/friday_breakfast/friday_breakfast_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/friday_dinner/friday_dinner_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/friday_dinner/friday_dinner_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/monday_breakfast/monday_breakfast_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/monday_breakfast/monday_breakfast_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/monday_dinner/monday_dinner_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/monday_dinner/monday_dinner_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/saturday_breakfast/saturday_breakfast_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/saturday_breakfast/saturday_breakfast_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/saturday_dinner/saturday_dinner_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/saturday_dinner/saturday_dinner_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/sunday_breakfast/sunday_breakfast_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/sunday_breakfast/sunday_breakfast_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/sunday_dinner/sunday_dinner_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/sunday_dinner/sunday_dinner_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/thursday_breakfast/thursday_breakfast_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/thursday_breakfast/thursday_breakfast_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/thursday_dinner/thursday_dinner_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/thursday_dinner/thursday_dinner_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/tuesday_breakfast/tuesday_breakfast_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/tuesday_breakfast/tuesday_breakfast_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/tuesday_dinner/tuesday_dinner_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/tuesday_dinner/tuesday_dinner_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/wednesday_breakfast/wednesday_breakfast_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/wednesday_breakfast/wednesday_breakfast_screen.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/wednesday_dinner/wednesday_dinner_binding.dart';
+import 'package:dorm_app/modules/food_list/food_list_items_pages/wednesday_dinner/wednesday_dinner_screen.dart';
 import 'package:dorm_app/modules/food_list/food_list_screen.dart';
 import 'package:dorm_app/modules/homepage/homepage_screen.dart';
 import 'package:dorm_app/modules/loading/loading_animation.dart';
@@ -71,31 +90,7 @@ class AppPages {
       page: () => AnnouncementsScreen(),
       binding: AnnouncementsBinding(),
     ),
-    GetPage(
-      name: Routes.FOODLIST,
-      page: () => FoodListScreen(),
-      binding: FoodListBinding(),
-    ),
-    GetPage(
-      name: Routes.TODAYBREAKFAST,
-      page: () => TodayBreakfastScreen(),
-      binding: TodayBreakfastBinding(),
-    ),
-    GetPage(
-      name: Routes.TODAYDINNER,
-      page: () => TodayDinnerScreen(),
-      binding: TodayDinnerBinding(),
-    ),
-    GetPage(
-      name: Routes.TOMORROWBREAKFAST,
-      page: () => TomorrowBreakfastScreen(),
-      binding: TomorrowBreakfastBinding(),
-    ),
-    GetPage(
-      name: Routes.TOMORROWDINNER,
-      page: () => TomorrowDinnerScreen(),
-      binding: TomorrowDinnerBinding(),
-    ),
+
     GetPage(
       name: Routes.ANNOUNCEMENTDETAIL,
       page: () => AnnouncementDetailScreen(),
@@ -125,6 +120,82 @@ class AppPages {
       name: Routes.FOLLOWUS,
       page: () => FollowUsScreen(),
       binding: FollowUsBinding(),
+    ),
+    //Foods
+    GetPage(
+      name: Routes.FOODLIST,
+      page: () => FoodListScreen(),
+      binding: FoodListBinding(),
+    ),
+    GetPage(
+      name: Routes.MONDAYBREAKFAST,
+      page: () => MondayBreakfastScreen(),
+      binding: MondayBreakfastBinding(),
+    ),
+    GetPage(
+      name: Routes.MONDAYDINNER,
+      page: () => MondayDinnerScreen(),
+      binding: MondayDinnerBinding(),
+    ),
+    GetPage(
+      name: Routes.TUESDAYBREAKFAST,
+      page: () => TuesdayBreakfastScreen(),
+      binding: TuesdayBreakfastBinding(),
+    ),
+    GetPage(
+      name: Routes.TUESDAYDINNER,
+      page: () => TuesdayDinnerScreen(),
+      binding: TuesdayDinnerBinding(),
+    ),
+    GetPage(
+      name: Routes.WEDNESDAYBREAKFAST,
+      page: () => WednesdayBreakfastScreen(),
+      binding: WednesdayBreakfastBinding(),
+    ),
+    GetPage(
+      name: Routes.WEDNESDAYDINNER,
+      page: () => WednesdayDinnerScreen(),
+      binding: WednesdayDinnerBinding(),
+    ),
+    GetPage(
+      name: Routes.THURSDAYBREAKFAST,
+      page: () => ThursdayBreakfastScreen(),
+      binding: ThursdayBreakfastBinding(),
+    ),
+    GetPage(
+      name: Routes.THURSDAYDINNER,
+      page: () => ThursdayDinnerScreen(),
+      binding: ThursdayDinnerBinding(),
+    ),
+    GetPage(
+      name: Routes.FRIDAYBREAKFAST,
+      page: () => FridayBreakfastScreen(),
+      binding: FridayBreakfastBinding(),
+    ),
+    GetPage(
+      name: Routes.FRIDAYDINNER,
+      page: () => FridayDinnerScreen(),
+      binding: FridayDinnerBinding(),
+    ),
+    GetPage(
+      name: Routes.SATURDAYBREAKFAST,
+      page: () => SaturdayBreakfastScreen(),
+      binding: SaturdayBreakfastBinding(),
+    ),
+    GetPage(
+      name: Routes.SATURDAYDINNER,
+      page: () => SaturdayDinnerScreen(),
+      binding: SaturdayDinnerBinding(),
+    ),
+    GetPage(
+      name: Routes.SUNDAYBREAKFAST,
+      page: () => SundayBreakfastScreen(),
+      binding: SundayBreakfastBinding(),
+    ),
+    GetPage(
+      name: Routes.SUNDAYDINNER,
+      page: () => SundayDinnerScreen(),
+      binding: SundayDinnerBinding(),
     ),
   ];
 }
