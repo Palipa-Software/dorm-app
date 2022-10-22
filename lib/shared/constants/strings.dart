@@ -21,6 +21,7 @@ class AppStrings {
   //Titles
   static const activityTitle = "Etkinlikler";
   static const announcementsTitle = "Duyurular";
+  static const formsTitle = "Anketler";
 
   //complaintsStrings
   static const complaintsTitle = "Şikayet";
@@ -63,6 +64,7 @@ class AppStrings {
   static const exitIconPath = "assets/svgs/ic_logout.svg";
   static const profileIconPath = "assets/images/img_avatar.jpg";
   static const loginIconPath = "ic_login";
+  static const formsIconPath = "ic_tick";
   static const announcementIconPath = "ic_inbox_in";
   static const foodListIconPath = "ic_basket_ok";
   static const complaintIconPath = "ic_warning";

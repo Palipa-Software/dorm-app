@@ -193,6 +193,8 @@ class GridMenu extends StatelessWidget {
             title: AppStrings.roomTechSupportTitle,
             func: controller.goRoomTechSupport),
         CustomHomePageMenuButton(
+            path: AppStrings.formsIconPath, title: AppStrings.formsTitle, func: controller.goForms),
+        CustomHomePageMenuButton(
             path: AppStrings.activityIconPath, title: AppStrings.activityTitle, func: controller.goActivity),
         CustomHomePageMenuButton(
             path: AppStrings.followUsIconPath, title: AppStrings.followUsTitle, func: controller.goFollowUs),

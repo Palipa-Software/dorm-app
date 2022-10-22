@@ -7,6 +7,7 @@ abstract class Routes {
   static const HOMEPAGE = '/homepage';
   static const LOGINHELP = '/loginHelp';
   static const ANNOUNCEMENTS = '/announcements';
+  static const FORMS = '/forms';
 
   static const ANNOUNCEMENTDETAIL = '/announcement_detail';
   static const ACTIVITY = '/activity';

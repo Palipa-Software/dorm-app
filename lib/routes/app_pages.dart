@@ -40,6 +40,8 @@ import 'package:dorm_app/modules/food_list/food_list_items_pages/wednesday_break
 import 'package:dorm_app/modules/food_list/food_list_items_pages/wednesday_dinner/wednesday_dinner_binding.dart';
 import 'package:dorm_app/modules/food_list/food_list_items_pages/wednesday_dinner/wednesday_dinner_screen.dart';
 import 'package:dorm_app/modules/food_list/food_list_screen.dart';
+import 'package:dorm_app/modules/forms/fomrs_binding.dart';
+import 'package:dorm_app/modules/forms/forms_screen.dart';
 import 'package:dorm_app/modules/homepage/homepage_screen.dart';
 import 'package:dorm_app/modules/loading/loading_animation.dart';
 import 'package:dorm_app/modules/loading/loading_animation_binding.dart';
@@ -196,6 +198,11 @@ class AppPages {
       name: Routes.SUNDAYDINNER,
       page: () => SundayDinnerScreen(),
       binding: SundayDinnerBinding(),
+    ),
+    GetPage(
+      name: Routes.FORMS,
+      page: () => FormsScreen(),
+      binding: FormsBinding(),
     ),
   ];
 }

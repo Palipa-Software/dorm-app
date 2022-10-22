@@ -33,6 +33,10 @@ class HomePageController extends GetxController {
     Get.toNamed(Routes.FOLLOWUS);
   }
 
+  void goForms() {
+    Get.toNamed(Routes.FORMS);
+  }
+
   void signOut() async {
     await auth.signOut();
     SharedPrefs.loginSaver("", "");
