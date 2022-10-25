@@ -1,6 +1,7 @@
 import 'package:dorm_app/routes/app_pages.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:dorm_app/shared/constants/strings.dart';
+import 'package:dorm_app/shared/utils/localizatons.dart';
 import 'package:dorm_app/theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,8 @@ class MyApp extends StatelessWidget {
           smartManagement: SmartManagement.keepFactory,
           theme: ThemeConfig.lightTheme,
           builder: EasyLoading.init(),
+          locale: Locale("tr", "TR"),
+          translations: LocaleString(),
         ),
       );
     });
