@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:dorm_app/modules/food_list/food_list_controller.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
@@ -11,43 +12,67 @@ import 'package:dorm_app/shared/constants/padding.dart';
 import 'package:dorm_app/shared/constants/strings.dart';
 
 class FoodListScreen extends GetView<FoodListController> {
+  List days = [
+    "Pazartesi",
+    "Salı",
+    "Çarşamba",
+    "Perşembe",
+    "Cuma",
+    "Cumartesi",
+    "Pazar"
+  ];
+  List foodListDay = [];
   @override
   Widget build(BuildContext context) {
-    List foodListDay = [
+    foodListDay = [
       DayFoodListButton(
-          Title: "Pazartesi",
+          index: 0,
+          Title: days[0],
           FuncDayFoodListPageNavi: () {
-            mealBottomSheet(context, "Pazartesi", controller.goMondayBreakfast, controller.goMondayDinner);
+            mealBottomSheet(context, days[0], controller.goMondayBreakfast,
+                controller.goMondayDinner);
           }),
       DayFoodListButton(
-          Title: "Salı",
+          index: 1,
+          Title: days[1],
           FuncDayFoodListPageNavi: () {
-            mealBottomSheet(context, "Salı", controller.goTuesdayBreakfast, controller.goTuesdayDinner);
+            mealBottomSheet(context, days[1], controller.goTuesdayBreakfast,
+                controller.goTuesdayDinner);
           }),
       DayFoodListButton(
-          Title: "Çarşamba",
+          index: 2,
+          Title: days[2],
           FuncDayFoodListPageNavi: () {
-            mealBottomSheet(context, "Çarşamba", controller.goWednesdayBreakfast, controller.goWednesdayDinner);
+            mealBottomSheet(context, days[2], controller.goWednesdayBreakfast,
+                controller.goWednesdayDinner);
           }),
       DayFoodListButton(
-          Title: "Perşembe",
+          index: 3,
+          Title: days[3],
           FuncDayFoodListPageNavi: () {
-            mealBottomSheet(context, "Perşembe", controller.goThursdayBreakfast, controller.goThursdayDinner);
+            mealBottomSheet(context, days[3], controller.goThursdayBreakfast,
+                controller.goThursdayDinner);
           }),
       DayFoodListButton(
-          Title: "Cuma",
+          index: 4,
+          Title: days[4],
           FuncDayFoodListPageNavi: () {
-            mealBottomSheet(context, "Cuma", controller.goFridayBreakfast, controller.goFridayDinner);
+            mealBottomSheet(context, days[4], controller.goFridayBreakfast,
+                controller.goFridayDinner);
           }),
       DayFoodListButton(
-          Title: "Cumartesi",
+          index: 5,
+          Title: days[5],
           FuncDayFoodListPageNavi: () {
-            mealBottomSheet(context, "Cumartesi", controller.goSaturdayBreakfast, controller.goSaturdayDinner);
+            mealBottomSheet(context, days[5], controller.goSaturdayBreakfast,
+                controller.goSaturdayDinner);
           }),
       DayFoodListButton(
-          Title: "Pazar",
+          index: 6,
+          Title: days[6],
           FuncDayFoodListPageNavi: () {
-            mealBottomSheet(context, "Pazar", controller.goSundayBreakfast, controller.goSundayDinner);
+            mealBottomSheet(context, days[6], controller.goSundayBreakfast,
+                controller.goSundayDinner);
           }),
     ];
     return Scaffold(
@@ -55,7 +80,8 @@ class FoodListScreen extends GetView<FoodListController> {
         centerTitle: true,
         title: Text(
           AppStrings.foodListTitle,
-          style: GoogleFonts.inconsolata(fontSize: 18.sp, fontWeight: FontWeight.w600),
+          style: GoogleFonts.inconsolata(
+              fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
       ),
       body: Padding(
@@ -79,7 +105,12 @@ class FoodListScreen extends GetView<FoodListController> {
     );
   }
 
-  Future<dynamic> mealBottomSheet(BuildContext context, String title, Function() BreakfastFunc, Function() DinnerFunc) {
+  Future<dynamic> mealBottomSheet(BuildContext context, String title,
+      Function() BreakfastFunc, Function() DinnerFunc) {
+    DateTime date = new DateTime.now();
+    String nowdate = DateFormat('EEEE').format(date).toString().tr;
+    RxInt formattedclock = int.parse(DateFormat('kk').format(date)).obs;
+
     return showModalBottomSheet(
       elevation: 10,
       context: context,
@@ -92,10 +123,55 @@ class FoodListScreen extends GetView<FoodListController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  title,
-                  style: GoogleFonts.inconsolata(
-                      color: AppColors.white, fontSize: 22.sp, fontWeight: FontWeight.w700, letterSpacing: 12.sp),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        title,
+                        style: GoogleFonts.inconsolata(
+                            color: AppColors.white,
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 12.sp),
+                      ),
+                      SizedBox(
+                        width: 5.w,
+                      ),
+                      nowdate == title && formattedclock.value < 22
+                          ? Obx(
+                              () {
+                                return Switch(
+                                  value: controller.on.value,
+                                  onChanged: (Value) {
+                                    if (controller.on.value == false) {
+                                      controller.getnumber();
+                                      controller.number.value =
+                                          controller.number.value + 1;
+                                      controller.toggle();
+                                      controller.notJoinUser(
+                                          controller.number.value.toString());
+
+                                      return print(controller.number.value);
+                                    } else {
+                                      controller.getnumber();
+                                      controller.number.value =
+                                          controller.number.value - 1;
+                                      controller.toggle();
+                                      controller.notJoinUser(
+                                          controller.number.value.toString());
+
+                                      print(controller.number.value);
+                                    }
+                                  },
+                                  activeColor: Colors.green,
+                                );
+                              },
+                            )
+                          : Switch(value: false, onChanged: (Value) {})
+                    ],
+                  ),
                 ),
                 DayFoodListButton(
                   Title: "Kahvaltı",
@@ -116,9 +192,11 @@ class FoodListScreen extends GetView<FoodListController> {
 
 class DayFoodListButton extends StatelessWidget {
   String Title;
+  int? index;
   Function() FuncDayFoodListPageNavi;
   DayFoodListButton({
     Key? key,
+    this.index,
     required this.Title,
     required this.FuncDayFoodListPageNavi,
   }) : super(key: key);
@@ -134,10 +212,13 @@ class DayFoodListButton extends StatelessWidget {
           child: Center(
             child: Text(
               Title,
-              style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 20.sp),
+              style: GoogleFonts.inconsolata(
+                  color: AppColors.white, fontSize: 20.sp),
             ),
           ),
-          decoration: BoxDecoration(color: AppColors.lakeView, borderRadius: BorderRadius.circular(16.sp)),
+          decoration: BoxDecoration(
+              color: AppColors.lakeView,
+              borderRadius: BorderRadius.circular(16.sp)),
           width: 100.w,
           height: 8.h,
         ),
