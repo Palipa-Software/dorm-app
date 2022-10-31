@@ -17,6 +17,7 @@ class AppStrings {
   static const phoneNumber = "Telefon Numarası";
   static const loginProblem = "Giriş Yapmakta Yaşadığın Sorun";
   static const loginHelpBtnText = "Sorununuzu İletin";
+  static const versionCode = "Version: 1.0.1";
 
   //Titles
   static const activityTitle = "Etkinlikler";
