@@ -26,7 +26,8 @@ class HomePageScreen extends GetView<HomePageController> {
         centerTitle: true,
         title: Text(
           AppStrings.appTitle,
-          style: GoogleFonts.inconsolata(fontSize: 15.5.sp, fontWeight: FontWeight.w700),
+          style: GoogleFonts.inconsolata(
+              fontSize: 15.5.sp, fontWeight: FontWeight.w700),
         ),
       ),
       body: Padding(
@@ -60,41 +61,65 @@ class HomePageDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
+      child: Column(
         children: [
-          DrawerHeader(
+          Container(
+            width: 100.w,
+            height: 25.h,
+            child: DrawerHeader(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage(AppStrings.profileIconPath),
+                  ),
+                  Text(
+                    _controller.auth.currentUser!.email.toString(),
+                    style: GoogleFonts.inconsolata(
+                        fontWeight: FontWeight.w600, fontSize: 18.sp),
+                  )
+                ],
+              ),
+              decoration: BoxDecoration(color: AppColors.lakeView),
+            ),
+          ),
+          Container(
+            height: 75.h,
+            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(AppStrings.profileIconPath),
+                Bounceable(
+                  onTap: () {
+                    _controller.signOut();
+                  },
+                  child: ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(
+                      AppStrings.exitText,
+                      style: GoogleFonts.inconsolata(
+                          fontSize: 16.sp, fontWeight: FontWeight.w500),
+                    ),
+                    trailing: SvgPicture.asset(
+                      AppStrings.exitIconPath,
+                      width: 3.w,
+                      height: 3.h,
+                      color: AppColors.white,
+                    ),
+                  ),
                 ),
                 Text(
-                  _controller.auth.currentUser!.email.toString(),
-                  style: GoogleFonts.inconsolata(fontWeight: FontWeight.w600, fontSize: 18.sp),
-                )
+                  AppStrings.versionCode,
+                  style: GoogleFonts.inconsolata(
+                      color: AppColors.white,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500),
+                ),
               ],
             ),
-            decoration: BoxDecoration(color: AppColors.lakeView),
           ),
-          Bounceable(
-            onTap: () {
-              _controller.signOut();
-            },
-            child: ListTile(
-              title: Text(
-                AppStrings.exitText,
-                style: GoogleFonts.inconsolata(fontSize: 16.sp, fontWeight: FontWeight.w500),
-              ),
-              trailing: SvgPicture.asset(
-                AppStrings.exitIconPath,
-                width: 3.w,
-                height: 3.h,
-                color: AppColors.white,
-              ),
-            ),
-          )
         ],
       ),
     );
@@ -185,19 +210,29 @@ class GridMenu extends StatelessWidget {
             title: AppStrings.announcementsTitle,
             func: controller.goAnnouncement),
         CustomHomePageMenuButton(
-            path: AppStrings.foodListIconPath, title: AppStrings.foodListTitle, func: controller.goFoodList),
+            path: AppStrings.foodListIconPath,
+            title: AppStrings.foodListTitle,
+            func: controller.goFoodList),
         CustomHomePageMenuButton(
-            path: AppStrings.complaintIconPath, title: AppStrings.complaintsTitle, func: controller.goComplaint),
+            path: AppStrings.complaintIconPath,
+            title: AppStrings.complaintsTitle,
+            func: controller.goComplaint),
         CustomHomePageMenuButton(
             path: AppStrings.roomTechSupportIconPath,
             title: AppStrings.roomTechSupportTitle,
             func: controller.goRoomTechSupport),
         CustomHomePageMenuButton(
-            path: AppStrings.formsIconPath, title: AppStrings.formsTitle, func: controller.goForms),
+            path: AppStrings.formsIconPath,
+            title: AppStrings.formsTitle,
+            func: controller.goForms),
         CustomHomePageMenuButton(
-            path: AppStrings.activityIconPath, title: AppStrings.activityTitle, func: controller.goActivity),
+            path: AppStrings.activityIconPath,
+            title: AppStrings.activityTitle,
+            func: controller.goActivity),
         CustomHomePageMenuButton(
-            path: AppStrings.followUsIconPath, title: AppStrings.followUsTitle, func: controller.goFollowUs),
+            path: AppStrings.followUsIconPath,
+            title: AppStrings.followUsTitle,
+            func: controller.goFollowUs),
       ],
     );
   }

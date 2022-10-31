@@ -136,40 +136,40 @@ class FoodListScreen extends GetView<FoodListController> {
                             fontWeight: FontWeight.w700,
                             letterSpacing: 12.sp),
                       ),
-                      SizedBox(
-                        width: 5.w,
-                      ),
-                      nowdate == title && formattedclock.value < 22
-                          ? Obx(
-                              () {
-                                return Switch(
-                                  value: controller.on.value,
-                                  onChanged: (Value) {
-                                    if (controller.on.value == false) {
-                                      controller.getnumber();
-                                      controller.number.value =
-                                          controller.number.value + 1;
-                                      controller.toggle();
-                                      controller.notJoinUser(
-                                          controller.number.value.toString());
+                      // SizedBox(
+                      //   width: 5.w,
+                      // ),
+                      // nowdate == title && formattedclock.value < 22
+                      //     ? Obx(
+                      //         () {
+                      //           return Switch(
+                      //             value: controller.on.value,
+                      //             onChanged: (Value) {
+                      //               if (controller.on.value == false) {
+                      //                 controller.getnumber();
+                      //                 controller.number.value =
+                      //                     controller.number.value + 1;
+                      //                 controller.toggle();
+                      //                 controller.notJoinUser(
+                      //                     controller.number.value.toString());
 
-                                      return print(controller.number.value);
-                                    } else {
-                                      controller.getnumber();
-                                      controller.number.value =
-                                          controller.number.value - 1;
-                                      controller.toggle();
-                                      controller.notJoinUser(
-                                          controller.number.value.toString());
+                      //                 return print(controller.number.value);
+                      //               } else {
+                      //                 controller.getnumber();
+                      //                 controller.number.value =
+                      //                     controller.number.value - 1;
+                      //                 controller.toggle();
+                      //                 controller.notJoinUser(
+                      //                     controller.number.value.toString());
 
-                                      print(controller.number.value);
-                                    }
-                                  },
-                                  activeColor: Colors.green,
-                                );
-                              },
-                            )
-                          : Switch(value: false, onChanged: (Value) {})
+                      //                 print(controller.number.value);
+                      //               }
+                      //             },
+                      //             activeColor: Colors.green,
+                      //           );
+                      //         },
+                      //       )
+                      //     : Switch(value: false, onChanged: (Value) {})
                     ],
                   ),
                 ),
