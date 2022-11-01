@@ -143,7 +143,7 @@ class HomePageSlider extends StatelessWidget {
         height: 25.h,
         child: PageView.builder(
           padEnds: true,
-          itemCount: 3,
+          itemCount: HomePageItems.SliderImagePath.length,
           controller: pageViewController,
           itemBuilder: (context, index) {
             return Container(

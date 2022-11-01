@@ -91,7 +91,7 @@ class FoodListScreen extends GetView<FoodListController> {
           children: [
             Container(
               width: 100.w,
-              height: 82.h,
+              height: 80.h,
               child: ListView.separated(
                   itemBuilder: (context, index) => foodListDay[index],
                   separatorBuilder: (context, index) => SizedBox(
