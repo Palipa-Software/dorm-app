@@ -49,10 +49,13 @@ import 'package:dorm_app/modules/login/login_binding.dart';
 import 'package:dorm_app/modules/login/login_screen.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_binding.dart';
 import 'package:dorm_app/modules/loginHelp/loginHelp_screen.dart';
+import 'package:dorm_app/modules/rezervation_confirmation/rezervation_confirmation_binding.dart';
+import 'package:dorm_app/modules/rezervation_confirmation/rezervation_show_screen.dart';
 import 'package:dorm_app/modules/roomTechnicalSupport/roomTechnicalSupport_binding.dart';
 import 'package:dorm_app/modules/roomTechnicalSupport/roomTechnicalSupport_screen.dart';
 import 'package:get/get.dart';
-
+import '../modules/gym_rezervation/gym_rezervation_binding.dart';
+import '../modules/gym_rezervation/gym_rezervation_screen.dart';
 import '../modules/splash/splash_binding.dart';
 import '../modules/splash/splash_screen.dart';
 
@@ -203,6 +206,16 @@ class AppPages {
       name: Routes.FORMS,
       page: () => FormsScreen(),
       binding: FormsBinding(),
+    ),
+    GetPage(
+      name: Routes.GYMREZERVATION,
+      page: () => GymRezervationScreen(),
+      binding: GymRezervationBinding(),
+    ),
+    GetPage(
+      name: Routes.REZERVATIONSHOWSCREEN,
+      page: () => RezervationShowScreen(),
+      binding: RezervationConfirmationBinding(),
     ),
   ];
 }

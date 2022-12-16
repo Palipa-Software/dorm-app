@@ -17,18 +17,25 @@ class AppStrings {
   static const phoneNumber = "Telefon Numarası";
   static const loginProblem = "Giriş Yapmakta Yaşadığın Sorun";
   static const loginHelpBtnText = "Sorununuzu İletin";
+  static const rezervation_confirm_button = "Rezervasyonu Onayla";
+  static const rezervation_cancel = "Rezervasyonu İptal";
+  static const rezervation_show = "Rezervasyon Bilgilerim";
+
   static const versionCode = "Version: 1.0.1";
 
   //Titles
   static const activityTitle = "Etkinlikler";
   static const announcementsTitle = "Duyurular";
   static const formsTitle = "Anketler";
+  static const gymTitle = "Gym Rezervasyon";
+  static const rezervation_confirmation_title = "Rezervasyon Bilgileri";
 
   //complaintsStrings
   static const complaintsTitle = "Şikayet";
   static const complaintsFormTitle = "Şikayet Formu";
   static const subjectOfComplaints = "Şikayet Konusu";
   static const problemText = "Şikayetinizi Belirtiniz";
+  static const gymInTitle = "Günlük Rezervasyon Saatleri";
 
   //Follow_usStrings
 
@@ -77,4 +84,5 @@ class AppStrings {
   static const followUsTwitterIconPath = "ic_twitter";
   static const followUsYoutubeIconPath = "ic_youtube";
   static const followUsMailIconPath = "mail";
+  static const gymIconPath = "ic_gym";
 }
