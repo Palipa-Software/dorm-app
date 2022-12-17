@@ -270,6 +270,8 @@ class RezervationConfirmationScreen
 
                             controller.createTodayRezervation(
                                 clock: arguments[0]);
+                            controller.nameSurnameController.text = "";
+                            controller.phoneNumberController.text = "";
                           } else {
                             Get.snackbar(
                               "Rezervasyon durumu",
