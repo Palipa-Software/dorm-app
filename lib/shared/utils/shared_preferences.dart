@@ -26,22 +26,12 @@ class SharedPrefs {
     }
   }
 
-  static Future<void> setString(String key, String value) async {
+  static Future<void> setRezervationInfo(String key, String value) async {
     var sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString(key, value);
   }
 
-  static Future<void> setBool(String key, bool? value) async {
-    var sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.setBool(key, value!);
-  }
-
-  static Future<bool?> getBool(String? key) async {
-    var sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.getBool(key!);
-  }
-
-  static Future<String?> getString(String key) async {
+  static Future<String?> getRezervationInfo(String key) async {
     var sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString(key);
   }

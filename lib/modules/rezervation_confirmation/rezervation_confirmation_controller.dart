@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dorm_app/modules/complaints/complaints_controller.dart';
 import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_screen.dart';
@@ -25,6 +27,20 @@ class RezervationConfirmationController extends GetxController {
     RezervationConfirmationScreen();
   }
 
+  @override
+  void onInit() {
+    DateTime now = DateTime.now();
+    DateTime targetTime = DateTime(now.year, now.month, now.day, 00, 00);
+    if (now.isAfter(targetTime)) {
+      targetTime = targetTime.add(Duration(days: 1));
+    }
+    Duration timeUntilTarget = targetTime.difference(now);
+    Timer.periodic(timeUntilTarget, (timer) {
+      allDeleteRezervation();
+    });
+    super.onInit();
+  }
+
   TextEditingController nameSurnameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   // TextEditingController eMailController = TextEditingController();
@@ -43,7 +59,9 @@ class RezervationConfirmationController extends GetxController {
         "email": FirebaseAuth.instance.currentUser!.email,
         "clock": clock,
       };
+
       await docRezervation.set(json);
+
       debugPrint("else düşmedim");
       Get.snackbar(
         "Rezervasyon Durumu",
@@ -64,6 +82,7 @@ class RezervationConfirmationController extends GetxController {
           ),
         ),
       );
+
       Get.to(GymRezervationScreen());
     } else {
       debugPrint("else düştüm");
@@ -134,6 +153,13 @@ class RezervationConfirmationController extends GetxController {
     }
   }
 
+  Future allDeleteRezervation() async {
+    await FirebaseFirestore.instance
+        .collection("rezervation")
+        .doc(FirebaseAuth.instance.currentUser!.email)
+        .delete();
+  }
+
   Future getIds() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -153,5 +179,22 @@ class RezervationConfirmationController extends GetxController {
     });
   }
 
-  Future rezervationNo() async {}
+  Future createTodayRezervation({required String clock}) async {
+    if (nameSurnameController.text.isNotEmpty &&
+        phoneNumberController.text.isNotEmpty &&
+        clock.isNotEmpty) {
+      final todayRezervation = FirebaseFirestore.instance
+          .collection("rezervationToday")
+          .doc(FirebaseAuth.instance.currentUser!.email);
+
+      final json = {
+        "name": nameSurnameController.text,
+        "phone": phoneNumberController.text,
+        "email": FirebaseAuth.instance.currentUser!.email,
+        "clock": clock,
+      };
+
+      await todayRezervation.set(json);
+    }
+  }
 }

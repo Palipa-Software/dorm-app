@@ -3,6 +3,7 @@ import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_controller.dart
 import 'package:dorm_app/modules/homepage/homepage_screen.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_confirmation_controller.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_show_screen.dart';
+import 'package:dorm_app/modules/rezervation_confirmation/rezervation_today_show_screen.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
@@ -68,52 +69,57 @@ class GymRezervationScreen extends GetView<GymRezervationController> {
                     shrinkWrap: true,
                   ),
                 ),
-                Bounceable(
-                    onTap: () {
-                      // Get.snackbar(
-                      //   "Başarılı",
-                      //   "başarılı mesaj",
-                      //   backgroundColor: AppColors.sodaliteBlue,
-                      //   titleText: Text(
-                      //     "Rezervasyon Durumu",
-                      //     style: GoogleFonts.inconsolata(
-                      //       color: AppColors.white,
-                      //       fontSize: 20.sp,
-                      //     ),
-                      //   ),
-                      //   messageText: Text(
-                      //     "Rezervasyonunuz Bulunmamaktadır",
-                      //     style: GoogleFonts.inconsolata(
-                      //       color: AppColors.white,
-                      //       fontSize: 17.sp,
-                      //     ),
-                      //   ),
-                      // );
-                      Get.to(
-                        RezervationShowScreen(
-                            // name: data[1],
-                            // clock: data[0],
-                            // phone: data[2],
-                            // email: data[3],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Bounceable(
+                        onTap: () {
+                          Get.to(
+                            RezervationTodayShowScreen(),
+                          );
+                        },
+                        child: Container(
+                          width: 42.w,
+                          height: 7.h,
+                          decoration: BoxDecoration(
+                              color: Color(0xff800000),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child: Text(
+                              "Bugün Spora Gideceğim Saati Göster",
+                              style: GoogleFonts.inconsolata(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                              textAlign: TextAlign.center,
                             ),
-                      );
-                    },
-                    child: Container(
-                      width: 300,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: AppColors.lakeView,
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Center(
-                        child: Text(
-                          AppStrings.rezervation_show,
-                          style: GoogleFonts.inconsolata(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ))
+                          ),
+                        )),
+                    Bounceable(
+                        onTap: () {
+                          Get.to(
+                            RezervationShowScreen(),
+                          );
+                        },
+                        child: Container(
+                          width: 42.w,
+                          height: 7.h,
+                          decoration: BoxDecoration(
+                              color: Color(0xff800000),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child: Text(
+                              "Yarın Spora Gideceğim Saati Göster",
+                              style: GoogleFonts.inconsolata(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ))
+                  ],
+                )
               ],
             ),
           ],

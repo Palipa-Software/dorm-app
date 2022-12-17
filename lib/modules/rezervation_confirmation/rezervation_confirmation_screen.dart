@@ -1,11 +1,10 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dorm_app/modules/complaints/complaints_controller.dart';
 import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_controller.dart';
-import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_screen.dart';
 import 'package:dorm_app/modules/homepage/homepage_controller.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_confirmation_controller.dart';
-import 'package:dorm_app/modules/rezervation_confirmation/rezervation_show_screen.dart';
-import 'package:dorm_app/routes/app_pages.dart';
 import 'package:dorm_app/shared/widgets/custom_rezervation_page_input.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../shared/constants/colors.dart';
 import '../../shared/constants/strings.dart';
-import '../../shared/utils/shared_preferences.dart';
 import '../../shared/widgets/custom_login_page_button.dart';
 import '../login/login_controller.dart';
 
@@ -34,6 +32,7 @@ class RezervationConfirmationScreen
 
   @override
   Widget build(BuildContext context) {
+    Timer timer;
     var arguments = Get.arguments;
 
     return Scaffold(
@@ -235,29 +234,40 @@ class RezervationConfirmationScreen
                               .get();
                           final count = querySnapshot.size;
                           print(count);
-                          count < 20
-                              ? controller.createRezervation(
-                                  clock: arguments[0].toString())
-                              : Get.snackbar(
-                                  "Rezervasyon durumu",
-                                  "Rezervasyon Dolu",
-                                  backgroundColor: AppColors.sodaliteBlue,
-                                  titleText: Text(
-                                    "Rezervasyon Durumu",
-                                    style: GoogleFonts.inconsolata(
-                                      color: AppColors.white,
-                                      fontSize: 20.sp,
-                                    ),
-                                  ),
-                                  messageText: Text(
-                                    "Rezervasyon Dolu",
-                                    style: GoogleFonts.inconsolata(
-                                        color: AppColors.white,
-                                        fontSize: 17.sp),
-                                  ),
-                                );
-                          controller.nameSurnameController.text = "";
-                          controller.phoneNumberController.text = "";
+                          if (count < 20) {
+                            controller.createRezervation(
+                                clock: arguments[0].toString());
+                            DateTime now = DateTime.now();
+                            DateTime targetTime =
+                                DateTime(now.year, now.month, now.day, 23, 59);
+                            if (now.isAfter(targetTime)) {
+                              targetTime = targetTime.add(Duration(days: 1));
+                            }
+                            Duration timeUntilTarget =
+                                targetTime.difference(now);
+                            timer = Timer(timeUntilTarget, () {
+                              controller.createTodayRezervation(
+                                  clock: arguments[0]);
+                            });
+                          } else {
+                            Get.snackbar(
+                              "Rezervasyon durumu",
+                              "Rezervasyon Dolu",
+                              backgroundColor: AppColors.sodaliteBlue,
+                              titleText: Text(
+                                "Rezervasyon Durumu",
+                                style: GoogleFonts.inconsolata(
+                                  color: AppColors.white,
+                                  fontSize: 20.sp,
+                                ),
+                              ),
+                              messageText: Text(
+                                "Rezervasyon Dolu",
+                                style: GoogleFonts.inconsolata(
+                                    color: AppColors.white, fontSize: 17.sp),
+                              ),
+                            );
+                          }
                         },
                         isTextButton: false,
                         title: AppStrings.rezervation_confirm_button,

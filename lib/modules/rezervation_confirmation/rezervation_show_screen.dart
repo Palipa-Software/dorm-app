@@ -36,7 +36,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
               centerTitle: true,
               leading: Icon(null),
               title: Text(
-                AppStrings.rezervation_show,
+                "YARININ REZERVASYON BİLGİSİ",
                 style: GoogleFonts.inconsolata(
                   fontSize: 19.sp,
                   fontWeight: FontWeight.w700,
