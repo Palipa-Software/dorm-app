@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_screen.dart';
 import 'package:dorm_app/modules/homepage/homepage_controller.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_confirmation_controller.dart';
-import 'package:dorm_app/shared/utils/shared_preferences.dart';
-import 'package:dorm_app/shared/widgets/custom_login_page_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
@@ -12,7 +10,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../shared/constants/colors.dart';
-import '../../shared/constants/strings.dart';
 
 class RezervationShowScreen extends GetView<RezervationConfirmationController> {
   RezervationShowScreen(
@@ -66,8 +63,8 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                     physics: NeverScrollableScrollPhysics(),
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 200, horizontal: 20),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 20.h, horizontal: 10.w),
                         child: Column(
                           children: [
                             Container(
@@ -75,7 +72,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                               height: 20.h,
                               margin: EdgeInsets.only(bottom: 3.h),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(20.sp),
                                 color: Colors.white,
                               ),
                               child: Padding(
@@ -93,7 +90,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 8,
+                                      height: 1.h,
                                     ),
                                     Text(
                                       "İsim Soyisim:${snapshot.data["name"]}",
@@ -103,7 +100,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 8,
+                                      height: 1.h,
                                     ),
                                     Text(
                                       "Telofon no:${snapshot.data["phone"]}",
@@ -113,7 +110,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 8,
+                                      height: 1.h,
                                     ),
                                     Text(
                                       "Mail adresi:${snapshot.data["email"]}",
@@ -127,7 +124,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                               ),
                             ),
                             SizedBox(
-                              height: 20,
+                              height: 3.h,
                             ),
                             Bounceable(
                                 onTap: () {
@@ -136,12 +133,12 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                   );
                                 },
                                 child: Container(
-                                  width: 300,
-                                  height: 50,
+                                  height: 7.h,
                                   margin: EdgeInsets.only(bottom: 3.h),
                                   decoration: BoxDecoration(
                                       color: AppColors.lakeView,
-                                      borderRadius: BorderRadius.circular(20)),
+                                      borderRadius:
+                                          BorderRadius.circular(20.sp)),
                                   child: Center(
                                     child: Text(
                                       "Rezervasyon Sayfasına Dön",
@@ -153,18 +150,18 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                   ),
                                 )),
                             SizedBox(
-                              height: 5,
+                              height: 1.h,
                             ),
                             Bounceable(
                                 onTap: () {
                                   controller.getIds();
                                 },
                                 child: Container(
-                                  width: 300,
-                                  height: 50,
+                                  height: 7.h,
                                   decoration: BoxDecoration(
                                       color: AppColors.lakeView,
-                                      borderRadius: BorderRadius.circular(20)),
+                                      borderRadius:
+                                          BorderRadius.circular(20.sp)),
                                   child: Center(
                                     child: Text(
                                       "Rezervasyon İptal",
@@ -175,9 +172,6 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                     ),
                                   ),
                                 )),
-                            SizedBox(
-                              height: 5,
-                            ),
                           ],
                         ),
                       ),
@@ -188,8 +182,8 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                     physics: NeverScrollableScrollPhysics(),
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 200, horizontal: 20),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 20.h, horizontal: 10.w),
                         child: Column(
                           children: [
                             Container(
@@ -197,7 +191,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                               height: 20.h,
                               margin: EdgeInsets.only(bottom: 3.h),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(20.sp),
                                 color: Colors.white,
                               ),
                               child: Padding(
@@ -219,7 +213,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                               ),
                             ),
                             SizedBox(
-                              height: 20,
+                              height: 3.h,
                             ),
                             Bounceable(
                                 onTap: () {
@@ -228,12 +222,12 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                   );
                                 },
                                 child: Container(
-                                  width: 300,
-                                  height: 50,
+                                  height: 7.h,
                                   margin: EdgeInsets.only(bottom: 3.h),
                                   decoration: BoxDecoration(
                                       color: AppColors.lakeView,
-                                      borderRadius: BorderRadius.circular(20)),
+                                      borderRadius:
+                                          BorderRadius.circular(20.sp)),
                                   child: Center(
                                     child: Text(
                                       "Rezervasyon Sayfasına Dön",

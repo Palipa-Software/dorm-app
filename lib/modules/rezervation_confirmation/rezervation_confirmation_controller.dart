@@ -5,12 +5,11 @@ import 'package:dorm_app/modules/complaints/complaints_controller.dart';
 import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_screen.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_confirmation_screen.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_show_screen.dart';
-import 'package:dorm_app/routes/routes.dart';
-import 'package:dorm_app/shared/utils/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../shared/constants/colors.dart';
@@ -30,7 +29,7 @@ class RezervationConfirmationController extends GetxController {
   @override
   void onInit() {
     DateTime now = DateTime.now();
-    DateTime targetTime = DateTime(now.year, now.month, now.day, 00, 00);
+    DateTime targetTime = DateTime(now.year, now.month, now.day, 09, 51);
     if (now.isAfter(targetTime)) {
       targetTime = targetTime.add(Duration(days: 1));
     }
@@ -192,6 +191,8 @@ class RezervationConfirmationController extends GetxController {
         "phone": phoneNumberController.text,
         "email": FirebaseAuth.instance.currentUser!.email,
         "clock": clock,
+        "date": DateFormat('dd/MM/yyyy')
+            .format(DateTime.now().add(Duration(days: 1)))
       };
 
       await todayRezervation.set(json);

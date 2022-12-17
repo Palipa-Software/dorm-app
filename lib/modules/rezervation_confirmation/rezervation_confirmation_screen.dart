@@ -65,13 +65,28 @@ class RezervationConfirmationScreen
                 child: Container(
                   width: 100.w,
                   height: 80.h,
-                  margin: EdgeInsets.only(left: 4.w, right: 4.w, top: 3.h),
+                  margin: EdgeInsets.only(left: 4.w, right: 4.w, top: 1.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(10.sp),
+                        child: Text(
+                          "NOT:LÜTFEN BUGÜN SPOR YAPMA SAATİNİZ GELMEDEN YARIN İÇİN RANDEVU ALMAYINIZ!!!",
+                          style: GoogleFonts.inconsolata(
+                            color: AppColors.white,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10.sp),
                         child: Text(
                           "NOT:ALDIĞINIZ REZERVASYONLAR ERTESİ GÜN İÇİNDİR!!!",
                           style: GoogleFonts.inconsolata(
@@ -154,13 +169,28 @@ class RezervationConfirmationScreen
                 child: Container(
                   width: 100.w,
                   height: 80.h,
-                  margin: EdgeInsets.only(left: 4.w, right: 4.w, top: 3.h),
+                  margin: EdgeInsets.only(left: 4.w, right: 4.w, top: 1.h),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(10.sp),
+                        child: Text(
+                          "NOT:LÜTFEN BUGÜN SPOR YAPMA SAATİNİZ GELMEDEN YARIN İÇİN RANDEVU ALMAYINIZ!!!",
+                          style: GoogleFonts.inconsolata(
+                            color: AppColors.white,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10.sp),
                         child: Text(
                           "NOT:ALDIĞINIZ REZERVASYONLAR ERTESİ GÜN İÇİNDİR!!!",
                           style: GoogleFonts.inconsolata(
@@ -237,18 +267,9 @@ class RezervationConfirmationScreen
                           if (count < 20) {
                             controller.createRezervation(
                                 clock: arguments[0].toString());
-                            DateTime now = DateTime.now();
-                            DateTime targetTime =
-                                DateTime(now.year, now.month, now.day, 23, 59);
-                            if (now.isAfter(targetTime)) {
-                              targetTime = targetTime.add(Duration(days: 1));
-                            }
-                            Duration timeUntilTarget =
-                                targetTime.difference(now);
-                            timer = Timer(timeUntilTarget, () {
-                              controller.createTodayRezervation(
-                                  clock: arguments[0]);
-                            });
+
+                            controller.createTodayRezervation(
+                                clock: arguments[0]);
                           } else {
                             Get.snackbar(
                               "Rezervasyon durumu",

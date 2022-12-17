@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../shared/constants/colors.dart';
@@ -54,15 +55,30 @@ class RezervationTodayShowScreen
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 200, horizontal: 20),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 15.h, horizontal: 9.w),
                     child: Column(children: [
+                      Padding(
+                        padding: EdgeInsets.all(10.0.sp),
+                        child: Text(
+                          "NOT:LÜTFEN BUGÜN SPOR YAPMA SAATİNİZ GELMEDEN YARIN İÇİN RANDEVU ALMAYINIZ!!!",
+                          style: GoogleFonts.inconsolata(
+                            color: AppColors.white,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
                       Container(
                         width: 80.w,
                         height: 20.h,
                         margin: EdgeInsets.only(bottom: 3.h),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.sp),
                           color: Colors.white,
                         ),
                         child: Padding(
@@ -71,49 +87,74 @@ class RezervationTodayShowScreen
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text(
-                                "Rezervasyon saati:${snapshot.data["clock"]}",
-                                style: GoogleFonts.inconsolata(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
+                              snapshot.data["date"] ==
+                                      DateFormat('dd/MM/yyyy')
+                                          .format(DateTime.now())
+                                  ? Text(
+                                      "Rezervasyon saati:${snapshot.data["clock"]}",
+                                      style: GoogleFonts.inconsolata(
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    )
+                                  : Text(""),
                               SizedBox(
-                                height: 8,
+                                height: 1.h,
                               ),
-                              Text(
-                                "İsim Soyisim:${snapshot.data["name"]}",
-                                style: GoogleFonts.inconsolata(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
+                              snapshot.data["date"] ==
+                                      DateFormat('dd/MM/yyyy')
+                                          .format(DateTime.now())
+                                  ? Text(
+                                      "İsim Soyisim:${snapshot.data["name"]}",
+                                      style: GoogleFonts.inconsolata(
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    )
+                                  : Text(""),
                               SizedBox(
-                                height: 8,
+                                height: 1.h,
                               ),
-                              Text(
-                                "Telofon no:${snapshot.data["phone"]}",
-                                style: GoogleFonts.inconsolata(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
+                              snapshot.data["date"] ==
+                                      DateFormat('dd/MM/yyyy')
+                                          .format(DateTime.now())
+                                  ? Text(
+                                      "Telofon no:${snapshot.data["phone"]}",
+                                      style: GoogleFonts.inconsolata(
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    )
+                                  : Center(
+                                      child: Text(
+                                        "Bugün İçin Rezervasyonunuz Bulunmamaktadır",
+                                        style: GoogleFonts.inconsolata(
+                                          fontSize: 19.sp,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
                               SizedBox(
-                                height: 8,
+                                height: 1.h,
                               ),
-                              Text(
-                                "Mail adresi:${snapshot.data["email"]}",
-                                style: GoogleFonts.inconsolata(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
+                              snapshot.data["date"] ==
+                                      DateFormat('dd/MM/yyyy')
+                                          .format(DateTime.now())
+                                  ? Text(
+                                      "Mail adresi:${snapshot.data["email"]}",
+                                      style: GoogleFonts.inconsolata(
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    )
+                                  : Text(""),
                             ],
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 3.h,
                       ),
                       Bounceable(
                           onTap: () {
@@ -122,8 +163,7 @@ class RezervationTodayShowScreen
                             );
                           },
                           child: Container(
-                            width: 300,
-                            height: 50,
+                            height: 7.h,
                             margin: EdgeInsets.only(bottom: 3.h),
                             decoration: BoxDecoration(
                                 color: AppColors.lakeView,
@@ -147,8 +187,8 @@ class RezervationTodayShowScreen
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 200, horizontal: 20),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 15.h, horizontal: 9.w),
                     child: Column(
                       children: [
                         Container(
@@ -156,7 +196,7 @@ class RezervationTodayShowScreen
                           height: 20.h,
                           margin: EdgeInsets.only(bottom: 3.h),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20.sp),
                             color: Colors.white,
                           ),
                           child: Padding(
@@ -177,7 +217,7 @@ class RezervationTodayShowScreen
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 3.h,
                         ),
                         Bounceable(
                             onTap: () {
@@ -186,8 +226,7 @@ class RezervationTodayShowScreen
                               );
                             },
                             child: Container(
-                              width: 300,
-                              height: 50,
+                              height: 7.h,
                               margin: EdgeInsets.only(bottom: 3.h),
                               decoration: BoxDecoration(
                                   color: AppColors.lakeView,
