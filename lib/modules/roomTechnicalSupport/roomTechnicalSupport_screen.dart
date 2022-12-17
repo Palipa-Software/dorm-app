@@ -9,8 +9,11 @@ import '../../shared/constants/strings.dart';
 import '../../shared/widgets/custom_login_page_button.dart';
 import '../../shared/widgets/custom_login_page_input.dart';
 
-class RoomTechnicalSupportScreen extends GetView<RoomTechnicalSupportController> {
+class RoomTechnicalSupportScreen
+    extends GetView<RoomTechnicalSupportController> {
   final LoginController _controller = LoginController();
+  RoomTechnicalSupportController controller =
+      Get.put(RoomTechnicalSupportController());
   RoomTechnicalSupportScreen({super.key});
 
   @override
@@ -56,7 +59,8 @@ class RoomTechnicalSupportScreen extends GetView<RoomTechnicalSupportController>
               ),
               CustomLoginPageInput(
                 isReadOnly: true,
-                controllerEmail: controller.initial(_controller.auth.currentUser!.email),
+                controllerEmail:
+                    controller.initial(_controller.auth.currentUser!.email),
                 isEmail: true,
                 hintText: AppStrings.email,
                 icon: Icons.email_outlined,

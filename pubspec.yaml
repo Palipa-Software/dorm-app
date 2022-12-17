@@ -38,28 +38,30 @@ dependencies:
   get: ^4.6.5
   flutter_easyloading: ^3.0.5
   responsive_sizer: ^3.1.0
-  lottie: ^1.4.2
+  lottie: ^2.0.0
   flutter_svg: ^1.1.5
   flutter_bounceable: ^1.0.3
   google_fonts: ^3.0.1
   intl: ^0.17.0
   smooth_page_indicator: ^1.0.0+2
-  firebase_core: ^1.22.0
-  firebase_auth: ^3.9.0
+  firebase_core: ^2.3.0
+  firebase_auth: ^4.1.4
   shared_preferences: ^2.0.15
-  cloud_firestore: ^3.4.8
-  internet_connection_checker: ^0.0.1+4
-  connectivity_plus: ^2.3.7
+  cloud_firestore: ^4.1.0
+  internet_connection_checker: ^1.0.0+1
+  connectivity_plus: ^3.0.2
   overlay_support: ^2.0.1
-  firebase_storage: ^10.3.8
+  firebase_storage: ^11.0.6
   image_picker: ^0.8.5+3
   url_launcher: ^6.1.5
-  firebase_database: ^9.1.7
+  firebase_database: ^10.0.6
+  flutter_local_notifications: ^12.0.4
+  firebase: ^9.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.11.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

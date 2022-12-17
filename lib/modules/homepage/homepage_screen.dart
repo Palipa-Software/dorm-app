@@ -233,6 +233,10 @@ class GridMenu extends StatelessWidget {
             path: AppStrings.followUsIconPath,
             title: AppStrings.followUsTitle,
             func: controller.goFollowUs),
+        CustomHomePageMenuButton(
+            path: AppStrings.gymIconPath,
+            title: AppStrings.gymTitle,
+            func: controller.goGym),
       ],
     );
   }

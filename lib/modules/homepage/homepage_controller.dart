@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_screen.dart';
+import 'package:dorm_app/modules/rezervation_confirmation/rezervation_show_screen.dart';
 import 'package:dorm_app/shared/utils/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +39,10 @@ class HomePageController extends GetxController {
     Get.toNamed(Routes.FORMS);
   }
 
+  void goGym() {
+    Get.toNamed(Routes.GYMREZERVATION);
+  }
+
   void signOut() async {
     await auth.signOut();
     SharedPrefs.loginSaver("", "");
@@ -46,7 +52,8 @@ class HomePageController extends GetxController {
   }
 
   void dataRead() async {
-    var data = await FirebaseFirestore.instance.collection("announcements").get();
+    var data =
+        await FirebaseFirestore.instance.collection("announcements").get();
     debugPrint(" Data sayısı " + data.size.toString());
   }
 }

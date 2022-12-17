@@ -8,6 +8,9 @@ abstract class Routes {
   static const LOGINHELP = '/loginHelp';
   static const ANNOUNCEMENTS = '/announcements';
   static const FORMS = '/forms';
+  static const GYMREZERVATION = '/gym_rezervation';
+  static const REZERVATIONCONFIRMATION = '/rezervation_confirmation';
+  static const REZERVATIONSHOWSCREEN = '/rezervation_confirmation';
 
   static const ANNOUNCEMENTDETAIL = '/announcement_detail';
   static const ACTIVITY = '/activity';
