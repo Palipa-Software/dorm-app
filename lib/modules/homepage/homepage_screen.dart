@@ -5,6 +5,7 @@ import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:dorm_app/modules/homepage/homepage_controller.dart';
@@ -16,32 +17,37 @@ import 'package:dorm_app/shared/constants/strings.dart';
 import '../../shared/widgets/custom_home_page_menu_button.dart';
 
 class HomePageScreen extends GetView<HomePageController> {
-  final HomePageController _controller = HomePageController();
+  HomePageController controller = Get.put(HomePageController());
   @override
   Widget build(BuildContext context) {
     PageController pageViewController = PageController();
     return Scaffold(
-      drawer: HomePageDrawer(),
+      drawer: HomePageDrawer(
+        controller: controller,
+      ),
       appBar: AppBar(
         centerTitle: true,
         title: Text(
           AppStrings.appTitle,
-          style: GoogleFonts.inconsolata(
-              fontSize: 15.5.sp, fontWeight: FontWeight.w700),
+          style: GoogleFonts.inconsolata(fontSize: 15.5.sp, fontWeight: FontWeight.w700),
         ),
       ),
-      body: Padding(
-        padding: AppPadding.projectPadding,
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: AppPadding.projectPadding,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              BannerAds(controller: controller),
+              SizedBox(
+                height: 2.h,
+              ),
               HomePageSlider(pageViewController: pageViewController),
               SizedBox(
                 height: 4.h,
               ),
               DotIndicator(pageViewController: pageViewController),
-              GridMenu(controller: _controller),
+              GridMenu(controller: controller),
             ],
           ),
         ),
@@ -50,11 +56,38 @@ class HomePageScreen extends GetView<HomePageController> {
   }
 }
 
+class BannerAds extends StatelessWidget {
+  const BannerAds({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final HomePageController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+      () {
+        return controller.staticAdLoaded.value == true
+            ? Container(
+                child: AdWidget(
+                  ad: controller.staticAd,
+                ),
+                width: controller.staticAd.size.width.toDouble(),
+                height: controller.staticAd.size.height.toDouble(),
+              )
+            : Container();
+      },
+    );
+  }
+}
+
 class HomePageDrawer extends StatelessWidget {
-  final HomePageController _controller = HomePageController();
+  final HomePageController controller;
   final LoginController controllerLogin = LoginController();
 
   HomePageDrawer({
+    required this.controller,
     Key? key,
   }) : super(key: key);
 
@@ -75,9 +108,8 @@ class HomePageDrawer extends StatelessWidget {
                     backgroundImage: AssetImage(AppStrings.profileIconPath),
                   ),
                   Text(
-                    _controller.auth.currentUser!.email.toString(),
-                    style: GoogleFonts.inconsolata(
-                        fontWeight: FontWeight.w600, fontSize: 18.sp),
+                    controller.auth.currentUser!.email.toString(),
+                    style: GoogleFonts.inconsolata(fontWeight: FontWeight.w600, fontSize: 18.sp),
                   )
                 ],
               ),
@@ -93,14 +125,13 @@ class HomePageDrawer extends StatelessWidget {
               children: [
                 Bounceable(
                   onTap: () {
-                    _controller.signOut();
+                    controller.signOut();
                   },
                   child: ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: Text(
                       AppStrings.exitText,
-                      style: GoogleFonts.inconsolata(
-                          fontSize: 16.sp, fontWeight: FontWeight.w500),
+                      style: GoogleFonts.inconsolata(fontSize: 16.sp, fontWeight: FontWeight.w500),
                     ),
                     trailing: SvgPicture.asset(
                       AppStrings.exitIconPath,
@@ -112,10 +143,7 @@ class HomePageDrawer extends StatelessWidget {
                 ),
                 Text(
                   AppStrings.versionCode,
-                  style: GoogleFonts.inconsolata(
-                      color: AppColors.white,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w500),
+                  style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 16.sp, fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -210,33 +238,20 @@ class GridMenu extends StatelessWidget {
             title: AppStrings.announcementsTitle,
             func: controller.goAnnouncement),
         CustomHomePageMenuButton(
-            path: AppStrings.foodListIconPath,
-            title: AppStrings.foodListTitle,
-            func: controller.goFoodList),
+            path: AppStrings.foodListIconPath, title: AppStrings.foodListTitle, func: controller.goFoodList),
         CustomHomePageMenuButton(
-            path: AppStrings.complaintIconPath,
-            title: AppStrings.complaintsTitle,
-            func: controller.goComplaint),
+            path: AppStrings.complaintIconPath, title: AppStrings.complaintsTitle, func: controller.goComplaint),
         CustomHomePageMenuButton(
             path: AppStrings.roomTechSupportIconPath,
             title: AppStrings.roomTechSupportTitle,
             func: controller.goRoomTechSupport),
         CustomHomePageMenuButton(
-            path: AppStrings.formsIconPath,
-            title: AppStrings.formsTitle,
-            func: controller.goForms),
+            path: AppStrings.formsIconPath, title: AppStrings.formsTitle, func: controller.goForms),
         CustomHomePageMenuButton(
-            path: AppStrings.activityIconPath,
-            title: AppStrings.activityTitle,
-            func: controller.goActivity),
+            path: AppStrings.activityIconPath, title: AppStrings.activityTitle, func: controller.goActivity),
         CustomHomePageMenuButton(
-            path: AppStrings.followUsIconPath,
-            title: AppStrings.followUsTitle,
-            func: controller.goFollowUs),
-        CustomHomePageMenuButton(
-            path: AppStrings.gymIconPath,
-            title: AppStrings.gymTitle,
-            func: controller.goGym),
+            path: AppStrings.followUsIconPath, title: AppStrings.followUsTitle, func: controller.goFollowUs),
+        CustomHomePageMenuButton(path: AppStrings.gymIconPath, title: AppStrings.gymTitle, func: controller.goGym),
       ],
     );
   }

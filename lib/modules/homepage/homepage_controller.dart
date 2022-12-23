@@ -4,10 +4,39 @@ import 'package:dorm_app/shared/utils/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../../routes/app_pages.dart';
 
 class HomePageController extends GetxController {
+  late BannerAd staticAd;
+  static const AdRequest request = AdRequest();
+  static const String unitId = "ca-app-pub-3940256099942544/6300978111";
+  RxBool staticAdLoaded = false.obs;
+  @override
+  void onInit() {
+    super.onInit();
+    loadStaticAd();
+  }
+
+  void loadStaticAd() {
+    staticAd = BannerAd(
+        size: AdSize.banner,
+        adUnitId: unitId,
+        listener: BannerAdListener(
+          onAdLoaded: (ad) {
+            staticAdLoaded.value = true;
+            print("Çalıştı");
+          },
+          onAdFailedToLoad: (ad, error) {
+            ad.dispose();
+            print("büyük hata $error");
+          },
+        ),
+        request: request);
+    staticAd.load();
+  }
+
   FirebaseAuth auth = FirebaseAuth.instance;
 
   void goAnnouncement() {
@@ -51,8 +80,7 @@ class HomePageController extends GetxController {
   }
 
   void dataRead() async {
-    var data =
-        await FirebaseFirestore.instance.collection("announcements").get();
+    var data = await FirebaseFirestore.instance.collection("announcements").get();
     debugPrint(" Data sayısı " + data.size.toString());
   }
 }
