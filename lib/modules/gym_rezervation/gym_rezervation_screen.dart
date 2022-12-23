@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_controller.dart';
 import 'package:dorm_app/modules/homepage/homepage_screen.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_confirmation_controller.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_show_screen.dart';
 import 'package:dorm_app/modules/rezervation_confirmation/rezervation_today_show_screen.dart';
-import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 
