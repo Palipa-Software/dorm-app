@@ -35,4 +35,14 @@ class SharedPrefs {
     var sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString(key);
   }
+
+  static Future<void> setBool(String key, bool value) async {
+    var sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setBool(key, value);
+  }
+
+  static Future<bool?> getBool(String key) async {
+    var sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getBool(key);
+  }
 }

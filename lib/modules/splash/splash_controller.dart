@@ -8,18 +8,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../shared/utils/services.dart';
 import '../../shared/utils/shared_preferences.dart';
 
 class SplashController extends GetxController {
   Rx<ConnectivityResult> _connectivityResult = ConnectivityResult.none.obs;
   Rx<Connectivity> _connectivity = Connectivity().obs;
   RxBool hasInternet = false.obs;
+  final _service = FirebaseNotificationService();
 
   @override
   void onInit() async {
     super.onInit();
     hasInternet.value = await InternetConnectionChecker().hasConnection;
     _connectivityResult.value = await Connectivity().checkConnectivity();
+    _service.connectNotification();
+
     InternetConnectionChecker().onStatusChange.listen(
       (status) {
         hasInternet.value = status == InternetConnectionStatus.connected;
@@ -44,11 +48,13 @@ class SplashController extends GetxController {
             backgroundColor: AppColors.sodaliteBlue,
             titleText: Text(
               "Bağlantı Sorunu",
-              style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+              style: GoogleFonts.inconsolata(
+                  color: AppColors.white, fontSize: 17.sp),
             ),
             messageText: Text(
               "İnternet Bağlantınızı Kontrol Ediniz!!!",
-              style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+              style: GoogleFonts.inconsolata(
+                  color: AppColors.white, fontSize: 17.sp),
             ),
           );
         }
@@ -56,7 +62,8 @@ class SplashController extends GetxController {
       },
     ).obs;
 
-    if (_connectivityResult == ConnectivityResult.mobile || _connectivityResult == ConnectivityResult.wifi) {
+    if (_connectivityResult == ConnectivityResult.mobile ||
+        _connectivityResult == ConnectivityResult.wifi) {
       await Future.delayed(Duration(milliseconds: 3000));
       Get.toNamed(Routes.LOGIN);
       await SharedPrefs.loginRead();
@@ -68,11 +75,13 @@ class SplashController extends GetxController {
         backgroundColor: AppColors.oceanNight,
         titleText: Text(
           "Bağlantı Sorunu",
-          style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+          style:
+              GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
         ),
         messageText: Text(
           "İnternet Bağlantınızı Kontrol Ediniz!!!",
-          style: GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
+          style:
+              GoogleFonts.inconsolata(color: AppColors.white, fontSize: 17.sp),
         ),
       );
     }

@@ -2,12 +2,15 @@ import 'package:dorm_app/routes/app_pages.dart';
 import 'package:dorm_app/shared/constants/colors.dart';
 import 'package:dorm_app/shared/constants/strings.dart';
 import 'package:dorm_app/shared/utils/localizatons.dart';
+import 'package:dorm_app/shared/utils/services.dart';
 import 'package:dorm_app/theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:grock/grock.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -18,6 +21,9 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FirebaseMessaging.onBackgroundMessage(
+      FirebaseNotificationService.backgroundMessage);
+
   runApp(MyApp());
   configLoading();
 }
@@ -30,6 +36,8 @@ class MyApp extends StatelessWidget {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return OverlaySupport.global(
         child: GetMaterialApp(
+          navigatorKey: Grock.navigationKey,
+          scaffoldMessengerKey: Grock.scaffoldMessengerKey,
           debugShowCheckedModeBanner: false,
           enableLog: false,
           title: AppStrings.appTitle,

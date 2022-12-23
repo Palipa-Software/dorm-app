@@ -62,10 +62,8 @@ class RezervationConfirmationScreen
           if (snapshot.hasData) {
             if (snapshot.data != null && snapshot.data.exists) {
               return SingleChildScrollView(
-                child: Container(
-                  width: 100.w,
-                  height: 80.h,
-                  margin: EdgeInsets.only(left: 4.w, right: 4.w, top: 1.h),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 5.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -166,10 +164,8 @@ class RezervationConfirmationScreen
               );
             } else {
               return SingleChildScrollView(
-                child: Container(
-                  width: 100.w,
-                  height: 80.h,
-                  margin: EdgeInsets.only(left: 4.w, right: 4.w, top: 1.h),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 5.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -264,7 +260,7 @@ class RezervationConfirmationScreen
                               .get();
                           final count = querySnapshot.size;
                           print(count);
-                          if (count < 20) {
+                          if (count < 15) {
                             controller.createRezervation(
                                 clock: arguments[0].toString());
 
@@ -290,6 +286,8 @@ class RezervationConfirmationScreen
                                     color: AppColors.white, fontSize: 17.sp),
                               ),
                             );
+                            controller.nameSurnameController.text = "";
+                            controller.phoneNumberController.text = "";
                           }
                         },
                         isTextButton: false,

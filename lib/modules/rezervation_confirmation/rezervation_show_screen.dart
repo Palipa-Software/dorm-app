@@ -31,7 +31,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
         child: Scaffold(
           appBar: AppBar(
               centerTitle: true,
-              leading: Icon(null),
+              automaticallyImplyLeading: false,
               title: Text(
                 "YARININ REZERVASYON BİLGİSİ",
                 style: GoogleFonts.inconsolata(
