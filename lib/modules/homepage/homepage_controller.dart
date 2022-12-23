@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dorm_app/modules/gym_rezervation/gym_rezervation_screen.dart';
-import 'package:dorm_app/modules/rezervation_confirmation/rezervation_show_screen.dart';
+import 'package:dorm_app/shared/utils/services.dart';
 import 'package:dorm_app/shared/utils/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
