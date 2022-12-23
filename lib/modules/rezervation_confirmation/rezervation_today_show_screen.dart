@@ -12,11 +12,9 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../shared/constants/colors.dart';
 import '../gym_rezervation/gym_rezervation_screen.dart';
 
-class RezervationTodayShowScreen
-    extends GetView<RezervationConfirmationController> {
+class RezervationTodayShowScreen extends GetView<RezervationConfirmationController> {
   RezervationTodayShowScreen({super.key});
-  RezervationConfirmationController conroller =
-      Get.put(RezervationConfirmationController());
+  RezervationConfirmationController conroller = Get.put(RezervationConfirmationController());
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +53,7 @@ class RezervationTodayShowScreen
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 15.h, horizontal: 9.w),
+                    padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 8.w),
                     child: Column(children: [
                       Padding(
                         padding: EdgeInsets.all(10.0.sp),
@@ -75,7 +72,7 @@ class RezervationTodayShowScreen
                       ),
                       Container(
                         width: 80.w,
-                        height: 20.h,
+                        height: 40.h,
                         margin: EdgeInsets.only(bottom: 3.h),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20.sp),
@@ -87,9 +84,7 @@ class RezervationTodayShowScreen
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              snapshot.data["date"] ==
-                                      DateFormat('dd/MM/yyyy')
-                                          .format(DateTime.now())
+                              snapshot.data["date"] == DateFormat('dd/MM/yyyy').format(DateTime.now())
                                   ? Text(
                                       "Rezervasyon saati:${snapshot.data["clock"]}",
                                       style: GoogleFonts.inconsolata(
@@ -101,9 +96,7 @@ class RezervationTodayShowScreen
                               SizedBox(
                                 height: 1.h,
                               ),
-                              snapshot.data["date"] ==
-                                      DateFormat('dd/MM/yyyy')
-                                          .format(DateTime.now())
+                              snapshot.data["date"] == DateFormat('dd/MM/yyyy').format(DateTime.now())
                                   ? Text(
                                       "İsim Soyisim:${snapshot.data["name"]}",
                                       style: GoogleFonts.inconsolata(
@@ -115,9 +108,7 @@ class RezervationTodayShowScreen
                               SizedBox(
                                 height: 1.h,
                               ),
-                              snapshot.data["date"] ==
-                                      DateFormat('dd/MM/yyyy')
-                                          .format(DateTime.now())
+                              snapshot.data["date"] == DateFormat('dd/MM/yyyy').format(DateTime.now())
                                   ? Text(
                                       "Telofon no:${snapshot.data["phone"]}",
                                       style: GoogleFonts.inconsolata(
@@ -138,9 +129,7 @@ class RezervationTodayShowScreen
                               SizedBox(
                                 height: 1.h,
                               ),
-                              snapshot.data["date"] ==
-                                      DateFormat('dd/MM/yyyy')
-                                          .format(DateTime.now())
+                              snapshot.data["date"] == DateFormat('dd/MM/yyyy').format(DateTime.now())
                                   ? Text(
                                       "Mail adresi:${snapshot.data["email"]}",
                                       style: GoogleFonts.inconsolata(
@@ -165,16 +154,13 @@ class RezervationTodayShowScreen
                           child: Container(
                             height: 7.h,
                             margin: EdgeInsets.only(bottom: 3.h),
-                            decoration: BoxDecoration(
-                                color: AppColors.lakeView,
-                                borderRadius: BorderRadius.circular(20)),
+                            decoration:
+                                BoxDecoration(color: AppColors.lakeView, borderRadius: BorderRadius.circular(20.sp)),
                             child: Center(
                               child: Text(
                                 "Rezervasyon Sayfasına Dön",
                                 style: GoogleFonts.inconsolata(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
+                                    fontSize: 18.sp, fontWeight: FontWeight.w500, color: Colors.white),
                               ),
                             ),
                           )),
@@ -187,13 +173,12 @@ class RezervationTodayShowScreen
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 15.h, horizontal: 9.w),
+                    padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 9.w),
                     child: Column(
                       children: [
                         Container(
                           width: 80.w,
-                          height: 20.h,
+                          height: 40.h,
                           margin: EdgeInsets.only(bottom: 3.h),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20.sp),
@@ -228,16 +213,13 @@ class RezervationTodayShowScreen
                             child: Container(
                               height: 7.h,
                               margin: EdgeInsets.only(bottom: 3.h),
-                              decoration: BoxDecoration(
-                                  color: AppColors.lakeView,
-                                  borderRadius: BorderRadius.circular(20)),
+                              decoration:
+                                  BoxDecoration(color: AppColors.lakeView, borderRadius: BorderRadius.circular(20)),
                               child: Center(
                                 child: Text(
                                   "Rezervasyon Sayfasına Dön",
                                   style: GoogleFonts.inconsolata(
-                                      fontSize: 18.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white),
+                                      fontSize: 18.sp, fontWeight: FontWeight.w500, color: Colors.white),
                                 ),
                               ),
                             )),

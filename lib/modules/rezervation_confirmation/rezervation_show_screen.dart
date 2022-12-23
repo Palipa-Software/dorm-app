@@ -12,15 +12,13 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../shared/constants/colors.dart';
 
 class RezervationShowScreen extends GetView<RezervationConfirmationController> {
-  RezervationShowScreen(
-      {super.key, this.name, this.clock, this.phone, this.email});
+  RezervationShowScreen({super.key, this.name, this.clock, this.phone, this.email});
   final String? clock;
   final String? name;
   final String? phone;
   final String? email;
   HomePageController homePageController = HomePageController();
-  RezervationConfirmationController controller =
-      Get.put(RezervationConfirmationController());
+  RezervationConfirmationController controller = Get.put(RezervationConfirmationController());
 
   @override
   Widget build(BuildContext context) {
@@ -63,13 +61,12 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                     physics: NeverScrollableScrollPhysics(),
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 20.h, horizontal: 10.w),
+                        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 8.w),
                         child: Column(
                           children: [
                             Container(
-                              width: 80.w,
-                              height: 20.h,
+                              width: 85.w,
+                              height: 40.h,
                               margin: EdgeInsets.only(bottom: 3.h),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20.sp),
@@ -79,8 +76,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                 padding: EdgeInsets.all(18.sp),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
                                       "Rezervasyon saati:${snapshot.data["clock"]}",
@@ -136,16 +132,12 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                   height: 7.h,
                                   margin: EdgeInsets.only(bottom: 3.h),
                                   decoration: BoxDecoration(
-                                      color: AppColors.lakeView,
-                                      borderRadius:
-                                          BorderRadius.circular(20.sp)),
+                                      color: AppColors.lakeView, borderRadius: BorderRadius.circular(20.sp)),
                                   child: Center(
                                     child: Text(
                                       "Rezervasyon Sayfasına Dön",
                                       style: GoogleFonts.inconsolata(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.white),
+                                          fontSize: 18.sp, fontWeight: FontWeight.w500, color: Colors.white),
                                     ),
                                   ),
                                 )),
@@ -159,16 +151,12 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                 child: Container(
                                   height: 7.h,
                                   decoration: BoxDecoration(
-                                      color: AppColors.lakeView,
-                                      borderRadius:
-                                          BorderRadius.circular(20.sp)),
+                                      color: AppColors.lakeView, borderRadius: BorderRadius.circular(20.sp)),
                                   child: Center(
                                     child: Text(
                                       "Rezervasyon İptal",
                                       style: GoogleFonts.inconsolata(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.white),
+                                          fontSize: 18.sp, fontWeight: FontWeight.w500, color: Colors.white),
                                     ),
                                   ),
                                 )),
@@ -182,13 +170,12 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                     physics: NeverScrollableScrollPhysics(),
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 20.h, horizontal: 10.w),
+                        padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 10.w),
                         child: Column(
                           children: [
                             Container(
                               width: 80.w,
-                              height: 20.h,
+                              height: 40.h,
                               margin: EdgeInsets.only(bottom: 3.h),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20.sp),
@@ -198,8 +185,7 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                 padding: EdgeInsets.all(18.sp),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
                                       "Rezervasyon Bulunmamaktadır",
@@ -225,16 +211,12 @@ class RezervationShowScreen extends GetView<RezervationConfirmationController> {
                                   height: 7.h,
                                   margin: EdgeInsets.only(bottom: 3.h),
                                   decoration: BoxDecoration(
-                                      color: AppColors.lakeView,
-                                      borderRadius:
-                                          BorderRadius.circular(20.sp)),
+                                      color: AppColors.lakeView, borderRadius: BorderRadius.circular(20.sp)),
                                   child: Center(
                                     child: Text(
                                       "Rezervasyon Sayfasına Dön",
                                       style: GoogleFonts.inconsolata(
-                                          fontSize: 18.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.white),
+                                          fontSize: 18.sp, fontWeight: FontWeight.w500, color: Colors.white),
                                     ),
                                   ),
                                 )),
