@@ -11,7 +11,7 @@ import '../../routes/app_pages.dart';
 class HomePageController extends GetxController {
   late BannerAd staticAd;
   static const AdRequest request = AdRequest();
-  static const String unitId = "ca-app-pub-3940256099942544/6300978111";
+  static const String unitId = "ca-app-pub-1614405033690708/8253163068";
   RxBool staticAdLoaded = false.obs;
   @override
   void onInit() {
